@@ -1,0 +1,27 @@
+{
+  "name": "census-2027-digital-india",
+  "version": "2.0.0",
+  "description": "India's First 100% Digital, Zero-Knowledge & Privacy-First Census Platform (PromptWars x ADYPU)",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s . -l 3000",
+    "dev": "serve -s . -l 3000",
+    "build": "echo 'Production static bundle ready at index.html'"
+  },
+  "keywords": [
+    "census-2027",
+    "digital-india",
+    "zero-knowledge",
+    "differential-privacy",
+    "dpdp-act-2023",
+    "genai",
+    "bhashasetu",
+    "vrikshasetu"
+  ],
+  "author": "Principal Full-Stack Engineer & Elite UI/UX Designer",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

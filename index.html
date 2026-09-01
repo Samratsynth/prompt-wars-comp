@@ -1,0 +1,3184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Census 2027: India's First Digital Census | डिजिटल जनगणना २०२७</title>
+  
+  <!-- Meta & SEO Tags -->
+  <meta name="description" content="Official Portal for Census 2027: India's First Digital, Privacy-First Population and Housing Census. Powered by GenAI, DPDP 2023 Compliance, ZK-Pass, Mobile OTP Verification & Vriksha-Setu Green Offset." />
+  <meta name="keywords" content="Census 2027, Digital Census India, BhashaSetu, ZK-Pass, Niti-Drishti, VrikshaSetu, Green Census, DPDP Act 2023, OTP Verification" />
+  <meta name="author" content="Office of the Registrar General & Census Commissioner, India" />
+  
+  <!-- Favicon / Brand Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇮🇳</text></svg>">
+
+  <!-- Google Fonts: Inter, Outfit, Noto Sans Devanagari, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Devanagari', 'sans-serif'],
+            heading: ['Outfit', 'Noto Sans Devanagari', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            saffron: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              400: '#ff9933',
+              500: '#ff8000',
+              600: '#e66b00',
+              700: '#c2410c',
+            },
+            tiranga: {
+              green: '#138808',
+              emerald: '#10b981',
+              darkgreen: '#047857',
+            },
+            ashoka: {
+              400: '#38bdf8',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#0b2545',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'fadeIn': 'fadeIn 0.3s ease-in-out',
+            'bounce-soft': 'bounceSoft 2s infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(6px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            bounceSoft: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-4px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React 18 & Babel for standalone JSX compilation -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Chart.js CDN for Interactive Demographic Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- QRCode.js for generating verifiable cryptographic QR Codes -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+  <!-- Canvas Confetti for celebration animations -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #334155;
+    }
+
+    /* Gradient Text Utilities */
+    .text-gradient-saffron {
+      background: linear-gradient(135deg, #ff8000 0%, #ea580c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .dark .text-gradient-saffron {
+      background: linear-gradient(135deg, #ffffff 15%, #ff9933 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-tiranga {
+      background: linear-gradient(135deg, #ea580c 0%, #0284c7 48%, #10b981 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .dark .text-gradient-tiranga {
+      background: linear-gradient(135deg, #ff9933 0%, #ffffff 48%, #10b981 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased transition-colors duration-200 selection:bg-saffron-500 selection:text-white">
+  
+  <!-- Root React Mount Container -->
+  <div id="root"></div>
+
+  <!-- React Application Core Logic -->
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useMemo } = React;
+
+    /* ==========================================================================
+       MODULE 1: COMPLETE 36 STATES & UNION TERRITORIES DATASET
+       ========================================================================== */
+    const ALL_STATES_UT_DATA = [
+      // Northern Zone
+      { id: "DL", name: "NCT of Delhi", nameHi: "दिल्ली", nameMr: "दिल्ली", zone: "North", isUT: true, capital: "New Delhi", districts: 11, phase1Start: "Apr 1, 2026", phase1End: "May 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 98, households: "43.2 Lakh", helpline: "1800-11-2027", icon: "🏛️" },
+      { id: "UP", name: "Uttar Pradesh", nameHi: "उत्तर प्रदेश", nameMr: "उत्तर प्रदेश", zone: "North", isUT: false, capital: "Lucknow", districts: 75, phase1Start: "May 15, 2026", phase1End: "Jul 1, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 62, households: "4.25 Cr", helpline: "1800-52-2027", icon: "🕌" },
+      { id: "RJ", name: "Rajasthan", nameHi: "राजस्थान", nameMr: "राजस्थान", zone: "North", isUT: false, capital: "Jaipur", districts: 50, phase1Start: "Jun 1, 2026", phase1End: "Jul 20, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 48, households: "1.52 Cr", helpline: "1800-14-2027", icon: "🏰" },
+      { id: "PB", name: "Punjab", nameHi: "पंजाब", nameMr: "पंजाब", zone: "North", isUT: false, capital: "Chandigarh", districts: 23, phase1Start: "May 1, 2026", phase1End: "Jun 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 74, households: "61.5 Lakh", helpline: "1800-18-2027", icon: "🌾" },
+      { id: "HR", name: "Haryana", nameHi: "हरियाणा", nameMr: "हरियाणा", zone: "North", isUT: false, capital: "Chandigarh", districts: 22, phase1Start: "May 5, 2026", phase1End: "Jun 20, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 79, households: "58.4 Lakh", helpline: "1800-17-2027", icon: "🚜" },
+      { id: "HP", name: "Himachal Pradesh", nameHi: "हिमाचल प्रदेश", nameMr: "हिमाचल प्रदेश", zone: "North", isUT: false, capital: "Shimla", districts: 12, phase1Start: "Apr 15, 2026", phase1End: "May 30, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 95, households: "16.8 Lakh", helpline: "1800-19-2027", icon: "🏔️" },
+      { id: "UK", name: "Uttarakhand", nameHi: "उत्तराखंड", nameMr: "उत्तराखंड", zone: "North", isUT: false, capital: "Dehradun", districts: 13, phase1Start: "May 10, 2026", phase1End: "Jun 25, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 68, households: "24.5 Lakh", helpline: "1800-13-2027", icon: "⛰️" },
+      { id: "JK", name: "Jammu and Kashmir", nameHi: "जम्मू और कश्मीर", nameMr: "जम्मू आणि काश्मीर", zone: "North", isUT: true, capital: "Srinagar / Jammu", districts: 20, phase1Start: "Jun 1, 2026", phase1End: "Jul 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 32, households: "26.8 Lakh", helpline: "1800-19-2028", icon: "❄️" },
+      { id: "LA", name: "Ladakh", nameHi: "लद्दाख", nameMr: "लडाख", zone: "North", isUT: true, capital: "Leh", districts: 2, phase1Start: "Jul 1, 2026", phase1End: "Aug 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 20, households: "65,000", helpline: "1800-19-2029", icon: "🗻" },
+      { id: "CH", name: "Chandigarh", nameHi: "चंडीगढ़", nameMr: "चंदीगड", zone: "North", isUT: true, capital: "Chandigarh", districts: 1, phase1Start: "Apr 1, 2026", phase1End: "May 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 99, households: "2.8 Lakh", helpline: "1800-17-2028", icon: "🏙️" },
+
+      // Western Zone
+      { id: "MH", name: "Maharashtra", nameHi: "महाराष्ट्र", nameMr: "महाराष्ट्र", zone: "West", isUT: false, capital: "Mumbai", districts: 36, phase1Start: "May 1, 2026", phase1End: "Jun 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 72, households: "2.54 Cr", helpline: "1800-22-2027", icon: "🚩" },
+      { id: "GJ", name: "Gujarat", nameHi: "गुजरात", nameMr: "गुजरात", zone: "West", isUT: false, capital: "Gandhinagar", districts: 33, phase1Start: "May 5, 2026", phase1End: "Jun 20, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 76, households: "1.28 Cr", helpline: "1800-79-2027", icon: "🦁" },
+      { id: "GA", name: "Goa", nameHi: "गोवा", nameMr: "गोवा", zone: "West", isUT: false, capital: "Panaji", districts: 2, phase1Start: "Apr 15, 2026", phase1End: "May 30, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 96, households: "4.1 Lakh", helpline: "1800-83-2027", icon: "🌴" },
+      { id: "DN", name: "Dadra & Nagar Haveli and Daman & Diu", nameHi: "दादरा और नगर हवेली एवं दमन और दीव", nameMr: "दादरा व नगर हवेली आणि दमण व दीव", zone: "West", isUT: true, capital: "Daman", districts: 3, phase1Start: "May 1, 2026", phase1End: "Jun 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 84, households: "1.8 Lakh", helpline: "1800-26-2027", icon: "🏖️" },
+
+      // Southern Zone
+      { id: "KA", name: "Karnataka", nameHi: "कर्नाटक", nameMr: "कर्नाटक", zone: "South", isUT: false, capital: "Bengaluru", districts: 31, phase1Start: "Apr 15, 2026", phase1End: "May 30, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 85, households: "1.42 Cr", helpline: "1800-80-2027", icon: "🐘" },
+      { id: "TN", name: "Tamil Nadu", nameHi: "तमिलनाडु", nameMr: "तमिळनाडू", zone: "South", isUT: false, capital: "Chennai", districts: 38, phase1Start: "Apr 20, 2026", phase1End: "Jun 5, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 81, households: "1.89 Cr", helpline: "1800-44-2027", icon: "🛕" },
+      { id: "KL", name: "Kerala", nameHi: "केरल", nameMr: "केरळ", zone: "South", isUT: false, capital: "Thiruvananthapuram", districts: 14, phase1Start: "Apr 10, 2026", phase1End: "May 25, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 99, households: "82.5 Lakh", helpline: "1800-47-2027", icon: "🛶" },
+      { id: "TG", name: "Telangana", nameHi: "तेलंगाना", nameMr: "तेलंगणा", zone: "South", isUT: false, capital: "Hyderabad", districts: 33, phase1Start: "May 1, 2026", phase1End: "Jun 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 73, households: "98.2 Lakh", helpline: "1800-40-2027", icon: "💎" },
+      { id: "AP", name: "Andhra Pradesh", nameHi: "आंध्र प्रदेश", nameMr: "आंध्र प्रदेश", zone: "South", isUT: false, capital: "Amaravati", districts: 26, phase1Start: "May 10, 2026", phase1End: "Jun 25, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 69, households: "1.34 Cr", helpline: "1800-86-2027", icon: "🌊" },
+      { id: "PY", name: "Puducherry", nameHi: "पुडुचेरी", nameMr: "पुद्दुचेरी", zone: "South", isUT: true, capital: "Puducherry", districts: 4, phase1Start: "Apr 15, 2026", phase1End: "May 30, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 97, households: "3.6 Lakh", helpline: "1800-41-2027", icon: "⛵" },
+      { id: "LD", name: "Lakshadweep", nameHi: "लक्षद्वीप", nameMr: "लक्षद्वीप", zone: "South", isUT: true, capital: "Kavaratti", districts: 1, phase1Start: "Apr 10, 2026", phase1End: "May 25, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 99, households: "14,500", helpline: "1800-48-2027", icon: "🐠" },
+
+      // Eastern Zone
+      { id: "WB", name: "West Bengal", nameHi: "पश्चिम बंगाल", nameMr: "पश्चिम बंगाल", zone: "East", isUT: false, capital: "Kolkata", districts: 23, phase1Start: "Jun 1, 2026", phase1End: "Jul 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 58, households: "2.12 Cr", helpline: "1800-33-2027", icon: "🎭" },
+      { id: "BR", name: "Bihar", nameHi: "बिहार", nameMr: "बिहार", zone: "East", isUT: false, capital: "Patna", districts: 38, phase1Start: "May 20, 2026", phase1End: "Jul 5, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 56, households: "2.38 Cr", helpline: "1800-61-2027", icon: "📜" },
+      { id: "OD", name: "Odisha", nameHi: "ओडिशा", nameMr: "ओडिशा", zone: "East", isUT: false, capital: "Bhubaneswar", districts: 30, phase1Start: "May 20, 2026", phase1End: "Jul 5, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 64, households: "1.02 Cr", helpline: "1800-67-2027", icon: "☀️" },
+      { id: "JH", name: "Jharkhand", nameHi: "झारखंड", nameMr: "झारखंड", zone: "East", isUT: false, capital: "Ranchi", districts: 24, phase1Start: "Jun 1, 2026", phase1End: "Jul 20, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 41, households: "74.8 Lakh", helpline: "1800-65-2027", icon: "🌲" },
+      { id: "AN", name: "Andaman and Nicobar Islands", nameHi: "अंडमान और निकोबार द्वीप समूह", nameMr: "अंदमान आणि निकोबार बेटे", zone: "East", isUT: true, capital: "Port Blair", districts: 3, phase1Start: "Apr 1, 2026", phase1End: "May 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 98, households: "1.1 Lakh", helpline: "1800-34-2027", icon: "🏝️" },
+
+      // Central Zone
+      { id: "MP", name: "Madhya Pradesh", nameHi: "मध्य प्रदेश", nameMr: "मध्य प्रदेश", zone: "Central", isUT: false, capital: "Bhopal", districts: 55, phase1Start: "May 10, 2026", phase1End: "Jun 25, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 65, households: "1.58 Cr", helpline: "1800-75-2027", icon: "🐅" },
+      { id: "CG", name: "Chhattisgarh", nameHi: "छत्तीसगढ़", nameMr: "छत्तीसगड", zone: "Central", isUT: false, capital: "Raipur", districts: 33, phase1Start: "May 15, 2026", phase1End: "Jul 1, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "active", progress: 59, households: "66.2 Lakh", helpline: "1800-77-2027", icon: "🌳" },
+
+      // North-East Zone
+      { id: "AS", name: "Assam", nameHi: "असम", nameMr: "आसाम", zone: "North-East", isUT: false, capital: "Dispur", districts: 35, phase1Start: "Jun 10, 2026", phase1End: "Jul 25, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 38, households: "71.2 Lakh", helpline: "1800-36-2027", icon: "🦏" },
+      { id: "AR", name: "Arunachal Pradesh", nameHi: "अरुणाचल प्रदेश", nameMr: "अरुणाचल प्रदेश", zone: "North-East", isUT: false, capital: "Itanagar", districts: 26, phase1Start: "Jun 15, 2026", phase1End: "Jul 30, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 29, households: "3.4 Lakh", helpline: "1800-37-2027", icon: "🌄" },
+      { id: "MN", name: "Manipur", nameHi: "मणिपुर", nameMr: "मणिपूर", zone: "North-East", isUT: false, capital: "Imphal", districts: 16, phase1Start: "Jun 20, 2026", phase1End: "Aug 5, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 24, households: "6.8 Lakh", helpline: "1800-38-2027", icon: "🌸" },
+      { id: "ML", name: "Meghalaya", nameHi: "मेघालय", nameMr: "मेघालय", zone: "North-East", isUT: false, capital: "Shillong", districts: 12, phase1Start: "Jun 15, 2026", phase1End: "Jul 30, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 31, households: "7.1 Lakh", helpline: "1800-36-2028", icon: "☁️" },
+      { id: "MZ", name: "Mizoram", nameHi: "मिजोरम", nameMr: "मिझोराम", zone: "North-East", isUT: false, capital: "Aizawl", districts: 11, phase1Start: "Jun 10, 2026", phase1End: "Jul 25, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 35, households: "2.5 Lakh", helpline: "1800-38-2028", icon: "🎋" },
+      { id: "NL", name: "Nagaland", nameHi: "नागालैंड", nameMr: "नागालँड", zone: "North-East", isUT: false, capital: "Kohima", districts: 16, phase1Start: "Jun 20, 2026", phase1End: "Aug 5, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 22, households: "4.2 Lakh", helpline: "1800-37-2028", icon: "🪶" },
+      { id: "SK", name: "Sikkim", nameHi: "सिक्किम", nameMr: "सिक्कीम", zone: "North-East", isUT: false, capital: "Gangtok", districts: 6, phase1Start: "May 1, 2026", phase1End: "Jun 15, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "completed", progress: 96, households: "1.5 Lakh", helpline: "1800-35-2027", icon: "🏔️" },
+      { id: "TR", name: "Tripura", nameHi: "त्रिपुरा", nameMr: "त्रिपुरा", zone: "North-East", isUT: false, capital: "Agartala", districts: 8, phase1Start: "Jun 5, 2026", phase1End: "Jul 20, 2026", phase2Start: "Feb 9, 2027", phase2End: "Feb 28, 2027", status: "upcoming", progress: 40, households: "9.2 Lakh", helpline: "1800-38-2029", icon: "🌺" }
+    ];
+
+    /* ==========================================================================
+       MODULE 2: MULTILINGUAL LOCALIZATION DICTIONARY (EN, HI, MR)
+       ========================================================================== */
+    const I18N = {
+      en: {
+        portalTitle: "Census 2027: Digital India",
+        govTag: "Ministry of Home Affairs • Govt. of India",
+        digitalCensusBadge: "INDIA'S 1ST 100% DIGITAL CENSUS",
+        navHome: "Overview",
+        navRoadmap: "Two Phases",
+        navSchedule: "State Schedule (All 36)",
+        navSelfEnumerate: "Self-Enumeration (Part A)",
+        navAdmin: "Control Room (Part B)",
+        navVoiceAI: "BhashaSetu AI",
+        navPolicyAI: "Niti-Drishti",
+        navPrivacy: "DPDP 2023 Shield",
+        navAnalytics: "Analytics",
+        navGreen: "Vriksha-Setu Eco",
+        
+        // Hero Section
+        heroBadge: "NATIONAL DIGITAL CENSUS INITIATIVE 2027",
+        heroTitle1: "Authentic, Simple & Inclusive",
+        heroTitleHighlight: "Digital Census 2027",
+        heroSubtitle: "Accurate, tamper-proof, and completely privacy-preserving enumeration for 1.45 Billion citizens. Tap your state easily, verify your identity via secure OTP, and plant virtual trees.",
+        btnStartSelfEnum: "Start Self-Enumeration",
+        btnBrowseStates: "Browse All 36 States & UTs",
+        btnTryVoiceAI: "Voice Assistant (BhashaSetu)",
+        
+        // Counters
+        statTotalEnum: "Verified Households",
+        statFieldVerified: "Field Survey Ready",
+        statSecurityScore: "DPDP Compliance",
+        statAvgTime: "Avg. Completion Time",
+        statSpeed: "3.2 Minutes",
+
+        // Green Census
+        greenBadge: "PAPERLESS CENSUS IMPACT",
+        greenTitle: "Vriksha-Setu: Green Digital Impact",
+        greenSubtitle: "Every digital self-enumeration eliminates physical paperwork, avoids carbon emissions, and plants a virtual tree.",
+        statPaperSaved: "A4 Paper Saved",
+        statCo2Avoided: "CO₂ Avoided (kg)",
+        statWaterSaved: "Clean Water Saved (L)",
+        statTreesPlanted: "Virtual Trees Seeded",
+
+        // State Schedule & Selector
+        scheduleTitle: "All 36 States & Union Territories Census Directory",
+        scheduleSubtitle: "Quick one-tap access to active windows, district counts, and regional helplines across all Indian zones.",
+        searchStatePlaceholder: "Search any State, UT, capital, or code...",
+        filterAll: "All Zones (36)",
+        statusActive: "Active Now",
+        statusUpcoming: "Scheduled",
+        statusCompleted: "Completed",
+        pickStateBtn: "🗺️ Tap to Pick State (No typing needed)",
+
+        // Form
+        formTitle: "Citizen Self-Enumeration Portal",
+        formSubtitle: "Complete your household census easily. Choose options with simple pictograms, verify mobile OTP, and get your ZK-Pass.",
+        step1: "1. Dwelling & Location",
+        step2: "2. Family Members",
+        step3: "3. Socio-Economics",
+        step4: "4. Review & ZK-Pass",
+        
+        headName: "Full Name of Head of Household",
+        headPhone: "Mobile Number (OTP Verified)",
+        stateSelect: "Selected State / UT",
+        district: "District / City",
+        pincode: "PIN Code",
+        address: "Full Residential Address",
+        houseType: "House Ownership / Structure",
+        waterSource: "Drinking Water Source",
+        lpgConnection: "Clean Cooking Fuel (LPG/PNG)",
+        electricity: "Electricity Supply",
+        broadband: "Internet Access",
+        vehicles: "Vehicles in Household",
+
+        otpVerifiedTag: "✅ Identity Authenticated (UIDAI Token Valid)",
+        otpUnverifiedTag: "⚠️ Mobile Not Verified (Tap to Verify)",
+        verifyOtpBtn: "Verify Identity via OTP 📲",
+        
+        addMemberBtn: "+ Add Family Member",
+        memberRelation: "Relationship to Head",
+        memberAge: "Age",
+        memberGender: "Gender",
+        memberEdu: "Education Level",
+        memberOcc: "Primary Occupation",
+        motherTongue: "Mother Tongue",
+        
+        zkConsentTitle: "Zero-Knowledge & DPDP Act 2023 Consent",
+        zkConsentText: "I consent to cryptographic hashing of my household data for national statistics. My raw identity is protected under Section 15 of Census Act 1948.",
+        btnSubmitCensus: "Generate Official ZK-Pass & Submit",
+        btnPrevious: "Previous",
+        btnNext: "Save & Continue",
+
+        // Innovations
+        voiceAITitle: "BhashaSetu: Voice-to-Form GenAI",
+        voiceAISubtitle: "Speak naturally in Hindi, Marathi, or English. AI automatically fills the entire form for you.",
+        voiceBtnListen: "Start Voice Assistant",
+        voiceBtnListening: "Listening... Speak now",
+        voiceBtnStop: "Process Voice Input",
+        voiceTrySample: "Or tap a sample phrase:",
+
+        adminTitle: "National & State Census Command Room",
+        adminSubtitle: "Live geospatial verification stream, bot prevention audit, and offline token scanner.",
+        tabLiveFeed: "Live Verified Submissions",
+        tabVerifier: "Offline QR Token Scanner",
+        privacyTitle: "DPDP Act 2023 & Misinformation Shield",
+        privacySubtitle: "Statutory guarantees ensuring census data is 100% confidential and safe from tax or police authorities."
+      },
+      hi: {
+        portalTitle: "जनगणना २०२७: डिजिटल भारत",
+        govTag: "गृह मंत्रालय • भारत सरकार",
+        digitalCensusBadge: "भारत की पहली १००% डिजिटल जनगणना",
+        navHome: "मुख्य पृष्ठ",
+        navRoadmap: "द्वि-चरणीय योजना",
+        navSchedule: "सभी ३६ राज्य एवं UT",
+        navSelfEnumerate: "स्वयं-गणना (भाग अ)",
+        navAdmin: "नियंत्रण कक्ष (भाग ब)",
+        navVoiceAI: "भाषासेतु AI",
+        navPolicyAI: "नीति-दृष्टि",
+        navPrivacy: "DPDP २०२३ सुरक्षा",
+        navAnalytics: "सांख्यिकी",
+        navGreen: "वृक्षसेतु हरित प्रभाव",
+        
+        // Hero Section
+        heroBadge: "राष्ट्रीय डिजिटल जनगणना अभियान २०२७",
+        heroTitle1: "सरल, सुरक्षित एवं प्रामाणिक",
+        heroTitleHighlight: "डिजिटल जनगणना २०२७",
+        heroSubtitle: "१.४५ अरब नागरिकों के लिए पूर्णतः गोपनीय एवं आसान जनगणना। बिना टाइप किए केवल छूकर अपना राज्य चुनें, सुरक्षित ओटीपी से सत्यापित करें और हरित पास पाएं।",
+        btnStartSelfEnum: "स्वयं-गणना शुरू करें",
+        btnBrowseStates: "सभी ३६ राज्य व UT देखें",
+        btnTryVoiceAI: "आवाज सहायक (भाषासेतु)",
+        
+        // Counters
+        statTotalEnum: "सत्यापित परिवार",
+        statFieldVerified: "फील्ड सत्यापन योग्य",
+        statSecurityScore: "DPDP सुरक्षा स्कोर",
+        statAvgTime: "औसत गणना समय",
+        statSpeed: "३.२ मिनट",
+
+        // Green Census
+        greenBadge: "कागज़-मुक्त पर्यावरण प्रभाव",
+        greenTitle: "वृक्षसेतु: हरित डिजिटल जनगणना",
+        greenSubtitle: "प्रत्येक डिजिटल स्वयं-गणना से कागज़ की बचत होती है, कार्बन उत्सर्जन रुकता है और एक पौधा रोपा जाता है।",
+        statPaperSaved: "बचाए गए A4 कागज़",
+        statCo2Avoided: "रोका गया CO₂ (किग्रा)",
+        statWaterSaved: "संरक्षित शुद्ध जल (लीटर)",
+        statTreesPlanted: "रोपे गए वर्चुअल पौधे",
+
+        // State Schedule & Selector
+        scheduleTitle: "सभी ३६ राज्यों एवं केंद्र शासित प्रदेशों की सूची",
+        scheduleSubtitle: "भारत के सभी क्षेत्रों के लिए सक्रिय जनगणना तिथियां, जिले और हेल्पलाइन नंबर आसानी से देखें।",
+        searchStatePlaceholder: "राज्य, केंद्र शासित प्रदेश या राजधानी खोजें...",
+        filterAll: "सभी क्षेत्र (३६)",
+        statusActive: "सक्रिय राज्य",
+        statusUpcoming: "आगामी",
+        statusCompleted: "पूर्ण",
+        pickStateBtn: "🗺️ आसानी से राज्य चुनें (टाइप करने की जरूरत नहीं)",
+
+        // Form
+        formTitle: "नागरिक स्वयं-गणना पोर्टल",
+        formSubtitle: "घर बैठे आसानी से जनगणना फॉर्म भरें। चित्रों को छूकर विकल्प चुनें, ओटीपी सत्यापित करें और पास प्राप्त करें।",
+        step1: "१. आवास व स्थान विवरण",
+        step2: "२. परिवार के सदस्य",
+        step3: "३. सामाजिक-आर्थिक विवरण",
+        step4: "४. समीक्षा व ZK-पास",
+        
+        headName: "परिवार के मुखिया का पूरा नाम",
+        headPhone: "मोबाइल नंबर (ओटीपी सत्यापित)",
+        stateSelect: "चयनित राज्य / UT",
+        district: "जिला / शहर",
+        pincode: "पिन कोड",
+        address: "पूरा आवासीय पता",
+        houseType: "मकान का प्रकार / स्वामित्व",
+        waterSource: "पेयजल का मुख्य स्रोत",
+        lpgConnection: "रसोई गैस (LPG/PNG)",
+        electricity: "बिजली कनेक्शन",
+        broadband: "इंटरनेट सुविधा",
+        vehicles: "स्वामित्व वाले वाहन",
+
+        otpVerifiedTag: "✅ पहचान सत्यापित (UIDAI टोकन मान्य)",
+        otpUnverifiedTag: "⚠️ मोबाइल असत्यापित (ओटीपी से सत्यापित करें)",
+        verifyOtpBtn: "ओटीपी से पहचान सत्यापित करें 📲",
+        
+        addMemberBtn: "+ परिवार का सदस्य जोड़ें",
+        memberRelation: "मुखिया से संबंध",
+        memberAge: "आयु",
+        memberGender: "लिंग",
+        memberEdu: "शिक्षा स्तर",
+        memberOcc: "मुख्य व्यवसाय",
+        motherTongue: "मातृभाषा",
+        
+        zkConsentTitle: "ज़ीरो-नॉलेज एवं DPDP अधिनियम २०२३ सहमति",
+        zkConsentText: "मैं सांख्यिकी उद्देश्य हेतु डेटा हैशिंग की सहमति देता/देती हूँ। जनगणना अधिनियम १९४८ धारा १५ के तहत मेरा विवरण पूरी तरह सुरक्षित है।",
+        btnSubmitCensus: "सत्यापित ZK-पास बनाएं व सबमिट करें",
+        btnPrevious: "पिछला",
+        btnNext: "सहेजें और आगे बढ़ें",
+
+        voiceAITitle: "भाषासेतु: बहुभाषी आवाज सहायक",
+        voiceAISubtitle: "हिंदी, मराठी या अंग्रेजी में बोलें। AI सुनकर पूरा फॉर्म अपने आप भर देगा।",
+        voiceBtnListen: "आवाज पहचान शुरू करें",
+        voiceBtnListening: "सुन रहा है... बोलिए",
+        voiceBtnStop: "आवाज से फॉर्म भरें",
+        voiceTrySample: "या तैयार वाक्य पर क्लिक करें:",
+
+        adminTitle: "राष्ट्रीय एवं राज्य जनगणना नियंत्रण कक्ष",
+        adminSubtitle: "रीयल-टाइम सत्यापन स्ट्रीम, बॉट-रोधी सुरक्षा ऑडिट और ऑफलाइन टोकन स्कैनर।",
+        tabLiveFeed: "सत्यापित प्रविष्टियां",
+        tabVerifier: "ऑफलाइन टोकन स्कैनर",
+        privacyTitle: "DPDP अधिनियम २०२३ सुरक्षा कवच",
+        privacySubtitle: "कानूनी सुरक्षा की गारंटी - जनगणना डेटा को पुलिस या टैक्स विभाग से कभी साझा नहीं किया जा सकता।"
+      },
+      mr: {
+        portalTitle: "जनगणना २०२७: डिजिटल भारत",
+        govTag: "गृह मंत्रालय • भारत सरकार",
+        digitalCensusBadge: "भारताची पहिली १००% डिजिटल जनगणना",
+        navHome: "मुख्य पृष्ठ",
+        navRoadmap: "दोन टप्पे",
+        navSchedule: "सर्व ३६ राज्ये व UT",
+        navSelfEnumerate: "स्वयं-नोंदणी (भाग अ)",
+        navAdmin: "प्रशासन कक्ष (भाग ब)",
+        navVoiceAI: "भाषासेतू AI",
+        navPolicyAI: "नीती-दृष्टी",
+        navPrivacy: "DPDP २०२३ सुरक्षा",
+        navAnalytics: "सांख्यिकी",
+        navGreen: "वृक्षसेतू हरित प्रभाव",
+        
+        // Hero Section
+        heroBadge: "राष्ट्रीय डिजिटल जनगणना मोहीम २०२७",
+        heroTitle1: "सुलभ, सुरक्षित व अधिकृत",
+        heroTitleHighlight: "डिजिटल जनगणना २०२७",
+        heroSubtitle: "१.४५ अब्ज नागरिकांसाठी अत्यंत सोपी व गोपनीय डिजिटल जनगणना. न लिहिता थेट राज्य निवडा, OTP ने ओळख तपासा आणि पर्यावरणपूरक पास मिळवा.",
+        btnStartSelfEnum: "स्वयं-नोंदणी सुरू करा",
+        btnBrowseStates: "सर्व ३६ राज्ये व केंद्रशासित प्रदेश",
+        btnTryVoiceAI: "व्हॉइस असिस्टंट (भाषासेतू)",
+        
+        // Counters
+        statTotalEnum: "सत्यापित कुटुंबे",
+        statFieldVerified: "फील्ड पडताळणी सज्ज",
+        statSecurityScore: "DPDP सुरक्षा स्कोअर",
+        statAvgTime: "नोंदणी वेळ",
+        statSpeed: "३.२ मिनिटे",
+
+        greenBadge: "कागदमुक्त पर्यावरण प्रभाव",
+        greenTitle: "वृक्षसेतू: हरित डिजिटल जनगणना",
+        greenSubtitle: "प्रत्येक डिजिटल नोंदीमुळे कागद वाचतो, कार्बन उत्सर्जन टळते आणि झाड लावले जाते.",
+        statPaperSaved: "वाचवलेले A4 कागद",
+        statCo2Avoided: "टाळलेले CO₂ (किग्रॅ)",
+        statWaterSaved: "वाचवलेले पाणी (लिटर)",
+        statTreesPlanted: "लावलेली व्हर्च्युअल झाडे",
+
+        scheduleTitle: "सर्व ३६ राज्ये व केंद्रशासित प्रदेश सूची",
+        scheduleSubtitle: "नोंदणीच्या तारखा, जिल्हे व हेल्पलाइन माहिती एका क्लिकवर सहज उपलब्ध.",
+        searchStatePlaceholder: "राज्य, केंद्रशासित प्रदेश किंवा राजधानी शोधा...",
+        filterAll: "सर्व विभाग (३६)",
+        statusActive: "सक्रिय राज्ये",
+        statusUpcoming: "नियोजित",
+        statusCompleted: "पूर्ण",
+        pickStateBtn: "🗺️ सोप्या पद्धतीने राज्य निवडा (टायपिंगची गरज नाही)",
+
+        formTitle: "नागरिक स्वयं-नोंदणी पोर्टल",
+        formSubtitle: "घरी बसून सोप्या पद्धतीने जनगणना पूर्ण करा. चित्रे निवडून माहिती भरा, OTP सत्यापित करा आणि ZK-पास मिळवा.",
+        step1: "१. घर व ठिकाण माहिती",
+        step2: "२. कुटुंबातील सदस्य",
+        step3: "३. सामाजिक व आर्थिक माहिती",
+        step4: "४. पुनरावलोकन व ZK-पास",
+        
+        headName: "कुटुंब प्रमुखाचे नाव",
+        headPhone: "मोबाईल क्रमांक (OTP सत्यापित)",
+        stateSelect: "निवडलेले राज्य / UT",
+        district: "जिल्हा / शहर",
+        pincode: "पिन कोड",
+        address: "संपूर्ण पत्ता",
+        houseType: "घराचा मालकी प्रकार",
+        waterSource: "पिण्याच्या पाण्याचा स्त्रोत",
+        lpgConnection: "स्वयंपाकाचा गॅस (LPG/PNG)",
+        electricity: "वीज पुरवठा",
+        broadband: "इंटरनेट सुविधा",
+        vehicles: "मालकीची वाहने",
+
+        otpVerifiedTag: "✅ ओळख सत्यापित (UIDAI टोकन वैध)",
+        otpUnverifiedTag: "⚠️ मोबाईल असत्यापित (OTP ने तपासा)",
+        verifyOtpBtn: "OTP ने ओळख सत्यापित करा 📲",
+        
+        addMemberBtn: "+ सदस्य जोडा",
+        memberRelation: "प्रमुखाशी नाते",
+        memberAge: "वय",
+        memberGender: "लिंग",
+        memberEdu: "शिक्षण पातळी",
+        memberOcc: "व्यवसाय / कार्यक्षेत्र",
+        motherTongue: "मातृभाषा",
+        
+        zkConsentTitle: "झिरो-नॉलेज व DPDP कायदा २०२३ संमती",
+        zkConsentText: "मी अधिकृत सांख्यिकी विश्लेषणासाठी संमती देतो/देते. माझी माहिती पूर्णपणे सुरक्षित राहील.",
+        btnSubmitCensus: "ZK-पास तयार करा व सबमिट करा",
+        btnPrevious: "मागे",
+        btnNext: "सहेजून पुढे चला",
+
+        voiceAITitle: "भाषासेतू: व्हॉइस-टू-फॉर्म AI",
+        voiceAISubtitle: "मराठी, हिंदी किंवा इंग्रजीत बोला. AI आपोआप समजून फॉर्म भरेल.",
+        voiceBtnListen: "आवाज ओळख सुरू करा",
+        voiceBtnListening: "ऐकत आहे... बोला",
+        voiceBtnStop: "आवाजावरून फॉर्म भरा",
+        voiceTrySample: "किंवा तयार नमुन्यावर क्लिक करा:",
+
+        adminTitle: "राष्ट्रीय व राज्य जनगणना नियंत्रण कक्ष",
+        adminSubtitle: "रिअल-टाइम सत्यापन स्ट्रीम, बॉट प्रतिबंधक ऑडिट आणि ऑफलाइन टोकन स्कॅनर.",
+        tabLiveFeed: "सत्यापित नोंदी",
+        tabVerifier: "ऑफलाइन टोकन स्कॅनर",
+        privacyTitle: "DPDP कायदा २०२३ सुरक्षा कवच",
+        privacySubtitle: "नागरिकांच्या विश्वासासाठी अधिकृत कायदेशीर संरक्षण."
+      }
+    };
+
+    /* ==========================================================================
+       MODULE 3: SEED CITIZEN RECORDS
+       ========================================================================== */
+    const INITIAL_RECORDS = [
+      { id: "SE2027-MH-401928", headName: "Rajesh S. Sharma", state: "Maharashtra", district: "Pune", members: 4, houseType: "Owned (Pucca)", water: "Treated Piped Tap", lpg: true, power: true, broadband: true, submittedAt: "2 mins ago", status: "Verified Authentic", verificationMode: "Mobile OTP + UIDAI #VD-9842", zkHash: "0x7f8a9...b4c2", diffEpsilon: 0.5 },
+      { id: "SE2027-KA-819203", headName: "Ananya Ramesh", state: "Karnataka", district: "Bengaluru Urban", members: 3, houseType: "Rented (Apartment)", water: "Piped Tap", lpg: true, power: true, broadband: true, submittedAt: "7 mins ago", status: "Verified Authentic", verificationMode: "Mobile OTP + UIDAI #VD-1109", zkHash: "0x3e1d9...f89a", diffEpsilon: 0.5 },
+      { id: "SE2027-UP-192837", headName: "Mohd. Tariq Siddiqui", state: "Uttar Pradesh", district: "Lucknow", members: 6, houseType: "Owned (Independent)", water: "Handpump/Tube well", lpg: true, power: true, broadband: false, submittedAt: "12 mins ago", status: "Verified Authentic", verificationMode: "Mobile OTP + UIDAI #VD-3341", zkHash: "0x99a2c...11e7", diffEpsilon: 0.5 },
+      { id: "SE2027-DL-583920", headName: "Gurpreet Kaur", state: "NCT of Delhi", district: "South Delhi", members: 4, houseType: "Owned (Floor)", water: "Treated Piped Tap", lpg: true, power: true, broadband: true, submittedAt: "18 mins ago", status: "Verified Authentic", verificationMode: "Mobile OTP + UIDAI #VD-8921", zkHash: "0x44b91...88c3", diffEpsilon: 0.5 },
+      { id: "SE2027-TN-773819", headName: "K. Soundararajan", state: "Tamil Nadu", district: "Coimbatore", members: 3, houseType: "Owned (Pucca)", water: "Piped Tap", lpg: true, power: true, broadband: true, submittedAt: "31 mins ago", status: "Verified Authentic", verificationMode: "Mobile OTP + UIDAI #VD-7762", zkHash: "0x12dc8...77a4", diffEpsilon: 0.5 },
+      { id: "SE2027-MH-994812", headName: "Bot Submission Flag", state: "Maharashtra", district: "Satara", members: 1, houseType: "Unspecified", water: "None", lpg: false, power: false, broadband: false, submittedAt: "45 mins ago", status: "Blocked Fake Entry", verificationMode: "Failed Captcha & Missing OTP", zkHash: "0x00000...0000", diffEpsilon: 0.0 }
+    ];
+
+    const MYTH_BUSTER_ITEMS = [
+      {
+        id: 1,
+        myth: "Is Census 2027 linked with NRC or questioning of citizenship status?",
+        fact: "FALSE. The Census is governed purely under the Census Act 1948. It is solely a statistical exercise to count all residents for public healthcare, schools, and development planning.",
+        tag: "Legal Safeguard",
+        status: "Busted"
+      },
+      {
+        id: 2,
+        myth: "Will my household data be shared with income tax, police or private agencies?",
+        fact: "ABSOLUTELY NOT. Under Section 15 of the Census Act 1948 and DPDP Act 2023, individual census records are confidential by law and CANNOT be accessed by tax, police, or produced in courts.",
+        tag: "Data Confidentiality",
+        status: "Busted"
+      },
+      {
+        id: 3,
+        myth: "Do I have to upload biometric fingerprint scans during self-enumeration?",
+        fact: "NO. Self-enumeration does NOT collect biometric scans or physical document uploads. Secure Mobile OTP is used solely to prevent fake bot submissions.",
+        tag: "Zero Biometrics",
+        status: "Verified True"
+      },
+      {
+        id: 4,
+        myth: "How does the system stop fake results or multiple spam submissions?",
+        fact: "Every submission requires authenticated Mobile OTP verification + Anti-Bot CAPTCHA + One-Household-One-Token rate-limiting, ensuring 100% genuine statistics.",
+        tag: "Anti-Fake Shield",
+        status: "Verified True"
+      }
+    ];
+
+    /* ==========================================================================
+       MODULE 4: REACT ANIMATED COUNTER HOOK
+       ========================================================================== */
+    function useAnimatedNumber(targetNumber, duration = 1200) {
+      const [value, setValue] = useState(0);
+      useEffect(() => {
+        let startTime = null;
+        const target = typeof targetNumber === 'number' ? targetNumber : parseInt(targetNumber.toString().replace(/[^0-9]/g, '')) || 0;
+        if (target === 0) return;
+        function animate(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / duration, 1);
+          const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          setValue(Math.floor(ease * target));
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        }
+        requestAnimationFrame(animate);
+      }, [targetNumber, duration]);
+      return value;
+    }
+
+    /* ==========================================================================
+       MODULE 5: ROOT APPLICATION COMPONENT
+       ========================================================================== */
+    // All 22 Eighth Schedule Indian Languages
+    const INDIAN_LANGUAGES = [
+      { code: 'en',  label: 'EN',       native: 'English',        i18nKey: 'en' },
+      { code: 'hi',  label: 'हिं',      native: 'हिन्दी',         i18nKey: 'hi' },
+      { code: 'mr',  label: 'मरा',      native: 'मराठी',          i18nKey: 'mr' },
+      { code: 'bn',  label: 'বাং',      native: 'বাংলা',          i18nKey: 'en' },
+      { code: 'te',  label: 'తెలు',     native: 'తెలుగు',         i18nKey: 'en' },
+      { code: 'ta',  label: 'தமி',      native: 'தமிழ்',          i18nKey: 'en' },
+      { code: 'gu',  label: 'ગુજ',      native: 'ગુજરાતી',        i18nKey: 'en' },
+      { code: 'kn',  label: 'ಕನ್ನ',    native: 'ಕನ್ನಡ',          i18nKey: 'en' },
+      { code: 'ml',  label: 'മലയ',      native: 'മലയാളം',         i18nKey: 'en' },
+      { code: 'pa',  label: 'ਪੰਜ',      native: 'ਪੰਜਾਬੀ',         i18nKey: 'en' },
+      { code: 'or',  label: 'ଓଡ଼',      native: 'ଓଡ଼ିଆ',           i18nKey: 'en' },
+      { code: 'as',  label: 'অস',       native: 'অসমীয়া',        i18nKey: 'en' },
+      { code: 'ur',  label: 'اردو',     native: 'اردو',           i18nKey: 'en' },
+      { code: 'sa',  label: 'सं',       native: 'संस्कृतम्',       i18nKey: 'hi' },
+      { code: 'mai', label: 'मैथ',      native: 'मैथिली',         i18nKey: 'hi' },
+      { code: 'ks',  label: 'کٲش',      native: 'کٲشُر',          i18nKey: 'en' },
+      { code: 'ne',  label: 'नेप',      native: 'नेपाली',         i18nKey: 'hi' },
+      { code: 'sd',  label: 'سنڌ',      native: 'سنڌي',          i18nKey: 'en' },
+      { code: 'kok', label: 'कोंक',     native: 'कोंकणी',         i18nKey: 'mr' },
+      { code: 'dgo', label: 'डोग',      native: 'डोगरी',          i18nKey: 'hi' },
+      { code: 'brx', label: 'बड़ो',     native: 'बड़ो',           i18nKey: 'hi' },
+      { code: 'sat', label: 'ᱥᱟᱱ',    native: 'ᱥᱟᱱᱛᱟᱲᱤ',     i18nKey: 'en' },
+    ];
+
+    function App() {
+      // Welcome Splash Screen
+      const [showWelcome, setShowWelcome] = useState(true);
+      const [welcomeStep, setWelcomeStep] = useState(0); // 0=landing, 1=lang select, 2=entering
+
+      // Global Settings & Themes
+      const [theme, setTheme] = useState('light'); // 'light' (clean government), 'dark' (slate), 'emerald' (eco)
+      const [fontSize, setFontSize] = useState('normal'); // 'normal', 'large', 'xl'
+      const [lang, setLang] = useState('en');
+      const [activeTab, setActiveTab] = useState('home'); 
+      const [records, setRecords] = useState(INITIAL_RECORDS);
+      const [toastMessage, setToastMessage] = useState(null);
+
+      // Trust & Safety Modal State
+      const [showTrustModal, setShowTrustModal] = useState(false);
+
+      // State Picker Modal (For citizens who cannot type/speak)
+      const [showStateModal, setShowStateModal] = useState(false);
+      const [stateModalZone, setStateModalZone] = useState("All");
+      const [stateModalSearch, setStateModalSearch] = useState("");
+
+      // State Schedule Filter & Search State
+      const [scheduleSearch, setScheduleSearch] = useState("");
+      const [selectedZone, setSelectedZone] = useState("All");
+
+      // Admin Filter State
+      const [adminSearch, setAdminSearch] = useState("");
+      const [adminStatusFilter, setAdminStatusFilter] = useState("All");
+      const [diffPrivacyView, setDiffPrivacyView] = useState(true);
+
+      // Citizen Identity & OTP Verification Gate State
+      const [isVerified, setIsVerified] = useState(false);
+      const [showOtpModal, setShowOtpModal] = useState(false);
+      const [otpDigits, setOtpDigits] = useState(["", "", "", "", "", ""]);
+      const [otpTimer, setOtpTimer] = useState(30);
+      const [captchaNum1, setCaptchaNum1] = useState(7);
+      const [captchaNum2, setCaptchaNum2] = useState(4);
+      const [captchaInput, setCaptchaInput] = useState("");
+      const [otpError, setOtpError] = useState("");
+      const [isVerifyingOtp, setIsVerifyingOtp] = useState(false);
+      const [verifiedTokenId, setVerifiedTokenId] = useState("");
+
+      // Base national counter
+      const [baseSelfEnumCount, setBaseSelfEnumCount] = useState(1854290);
+
+      // Self Enumeration Form State
+      const [formStep, setFormStep] = useState(1);
+      const [formData, setFormData] = useState({
+        headName: "Rajesh S. Sharma",
+        headPhone: "9820194820",
+        state: "Maharashtra",
+        district: "Pune",
+        pincode: "411014",
+        address: "Flat 402, Shivam Residency, Nagar Road",
+        houseType: "Owned (Pucca)",
+        wallMaterial: "Burnt Brick / Concrete",
+        roofMaterial: "RCC Concrete Slab",
+        waterSource: "Treated Piped Tap Water",
+        lpgConnection: "Yes",
+        electricity: "Yes",
+        broadband: "Yes (Fiber / FTTH)",
+        vehicles: "2-Wheeler & 4-Wheeler",
+        members: [
+          { name: "Rajesh S. Sharma", relation: "Head", age: "42", gender: "Male", marital: "Married", edu: "Graduate / B.Tech", occ: "IT / Services", motherTongue: "Marathi" }
+        ],
+        dpdpConsent: true
+      });
+
+      // Voice AI Assistant State (BhashaSetu)
+      const [isListening, setIsListening] = useState(false);
+      const [voiceTranscript, setVoiceTranscript] = useState("");
+      const [aiParsedEntities, setAiParsedEntities] = useState(null);
+
+      // Generated ZK-Pass State
+      const [generatedPass, setGeneratedPass] = useState(null);
+
+      // Niti-Drishti Policy Simulation State
+      const [policyParams, setPolicyParams] = useState({
+        urbanizationRate: 42,
+        elderlyRatio: 14,
+        cleanEnergyRate: 65,
+        femaleWorkforce: 38
+      });
+      const [generatedBrief, setGeneratedBrief] = useState(null);
+
+      // Offline Verifier Scanner Simulation State
+      const [scannedCodeInput, setScannedCodeInput] = useState("SE2027-MH-401928");
+      const [verificationResult, setVerificationResult] = useState(null);
+
+      const t = I18N[lang];
+
+      // Dynamic Animated Environmental Calculations
+      const animatedHouseholdCount = useAnimatedNumber(baseSelfEnumCount, 1400);
+      const paperSavedSheets = animatedHouseholdCount * 8;
+      const co2AvoidedKg = Math.round(animatedHouseholdCount * 0.082);
+      const waterSavedLiters = Math.round(animatedHouseholdCount * 1.85);
+      const virtualTreesSeeded = animatedHouseholdCount;
+      const afforestationTarget = 2500000;
+      const greenGoalPercent = Math.min(Math.round((baseSelfEnumCount / afforestationTarget) * 100), 100);
+
+      const showToast = (msg) => {
+        setToastMessage(msg);
+        setTimeout(() => setToastMessage(null), 3500);
+      };
+
+      // OTP Timer countdown
+      useEffect(() => {
+        let interval = null;
+        if (showOtpModal && otpTimer > 0) {
+          interval = setInterval(() => {
+            setOtpTimer(prev => prev - 1);
+          }, 1000);
+        }
+        return () => clearInterval(interval);
+      }, [showOtpModal, otpTimer]);
+
+      // Reset / Generate new CAPTCHA
+      const generateNewCaptcha = () => {
+        setCaptchaNum1(Math.floor(Math.random() * 8) + 2);
+        setCaptchaNum2(Math.floor(Math.random() * 8) + 1);
+        setCaptchaInput("");
+      };
+
+      // Open OTP Verification Modal
+      const handleOpenOtpModal = () => {
+        generateNewCaptcha();
+        setOtpDigits(["", "", "", "", "", ""]);
+        setOtpError("");
+        setOtpTimer(30);
+        setShowOtpModal(true);
+      };
+
+      // Auto-fill Demo OTP
+      const handleFillDemoOtp = () => {
+        setOtpDigits(["8", "2", "9", "1", "0", "4"]);
+        setCaptchaInput(String(captchaNum1 + captchaNum2));
+        setOtpError("");
+      };
+
+      // Verify OTP Submission
+      const handleVerifyOtpSubmit = () => {
+        const fullOtp = otpDigits.join("");
+        if (fullOtp.length < 6) {
+          setOtpError("Please enter the complete 6-digit OTP.");
+          return;
+        }
+        if (parseInt(captchaInput) !== (captchaNum1 + captchaNum2)) {
+          setOtpError("Security CAPTCHA calculation is incorrect. Please try again.");
+          return;
+        }
+
+        setIsVerifyingOtp(true);
+        setOtpError("");
+
+        setTimeout(() => {
+          setIsVerifyingOtp(false);
+          setIsVerified(true);
+          const generatedToken = "UIDAI-DPI-" + Math.floor(100000 + Math.random() * 900000);
+          setVerifiedTokenId(generatedToken);
+          setShowOtpModal(false);
+          showToast("🎉 Identity Authenticated! Verified Citizen Badge Awarded.");
+          if (window.confetti) {
+            window.confetti({ particleCount: 60, spread: 60, origin: { y: 0.6 } });
+          }
+        }, 900);
+      };
+
+      // Handle Quick State Pick from Visual Modal
+      const handleSelectState = (stateObj) => {
+        setFormData(prev => ({
+          ...prev,
+          state: stateObj.name,
+          district: stateObj.capital
+        }));
+        setShowStateModal(false);
+        showToast(`📍 Selected ${stateObj.name} (${stateObj.nameHi})`);
+      };
+
+      /* --------------------------------------------------------------------------
+         MODULE 6: BHASHASETU GENAI VOICE ENGINE & NLU PARSER
+         -------------------------------------------------------------------------- */
+      const handleStartVoice = () => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (SpeechRecognition) {
+          try {
+            const recognition = new SpeechRecognition();
+            recognition.lang = lang === 'hi' ? 'hi-IN' : (lang === 'mr' ? 'mr-IN' : 'en-IN');
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            setIsListening(true);
+            recognition.start();
+
+            recognition.onresult = (event) => {
+              const speechText = event.results[0][0].transcript;
+              setVoiceTranscript(speechText);
+              processNaturalVoiceText(speechText);
+              setIsListening(false);
+            };
+
+            recognition.onerror = (e) => {
+              setIsListening(false);
+              simulateVoiceParsing(lang === 'hi' ? "मेरा नाम राजेश शर्मा है, 45 साल, 4 सदस्य, पक्का घर, नल का पानी और एलपीजी कनेक्शन है।" : "My name is Rajesh Sharma, 45 years old, 4 family members, Pucca house, tap water and LPG.");
+            };
+
+            recognition.onend = () => {
+              setIsListening(false);
+            };
+          } catch (err) {
+            simulateVoiceParsing("मेरा नाम राजेश शर्मा है, 45 साल, 4 सदस्य, पक्का घर, नल का पानी और एलपीजी कनेक्शन है।");
+          }
+        } else {
+          simulateVoiceParsing("मेरा नाम राजेश शर्मा है, 45 साल, 4 सदस्य, पक्का घर, नल का पानी और एलपीजी कनेक्शन है।");
+        }
+      };
+
+      const simulateVoiceParsing = (sampleText) => {
+        setIsListening(true);
+        setVoiceTranscript(sampleText);
+        setTimeout(() => {
+          setIsListening(false);
+          processNaturalVoiceText(sampleText);
+        }, 900);
+      };
+
+      const processNaturalVoiceText = (text) => {
+        let parsed = {
+          name: "Rajesh S. Sharma",
+          age: 45,
+          membersCount: 4,
+          houseType: "Owned (Pucca)",
+          waterSource: "Treated Piped Tap Water",
+          lpg: "Yes",
+          electricity: "Yes",
+          broadband: "Yes (Fiber / FTTH)",
+          confidence: "99.1% (BhashaSetu NLU v4)"
+        };
+
+        if (text.includes("सचिन") || text.includes("पाटील") || text.includes("मराठी")) {
+          parsed.name = "Sachin Tukaram Patil";
+          parsed.age = 38;
+          parsed.membersCount = 3;
+        } else if (text.includes("Ananya") || text.includes("Roy") || text.includes("English")) {
+          parsed.name = "Ananya Roy";
+          parsed.age = 32;
+          parsed.membersCount = 3;
+        }
+
+        setAiParsedEntities(parsed);
+
+        setFormData(prev => ({
+          ...prev,
+          headName: parsed.name,
+          houseType: parsed.houseType,
+          waterSource: parsed.waterSource,
+          lpgConnection: parsed.lpg,
+          electricity: parsed.electricity,
+          broadband: parsed.broadband,
+          members: [
+            { name: parsed.name, relation: "Head", age: String(parsed.age), gender: "Male", marital: "Married", edu: "Graduate", occ: "Professional / Salaried", motherTongue: lang === 'mr' ? 'Marathi' : (lang === 'hi' ? 'Hindi' : 'English') }
+          ]
+        }));
+
+        showToast("✨ BhashaSetu AI auto-populated your form from speech!");
+      };
+
+      const speakText = (textToSpeak) => {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(textToSpeak);
+          utterance.lang = lang === 'hi' ? 'hi-IN' : (lang === 'mr' ? 'mr-IN' : 'en-IN');
+          utterance.rate = 0.95;
+          window.speechSynthesis.speak(utterance);
+        } else {
+          showToast("Speech synthesis is not supported on this browser.");
+        }
+      };
+
+      /* --------------------------------------------------------------------------
+         MODULE 7: ZERO-KNOWLEDGE PASS GENERATOR & ENUMERATION SUBMISSION
+         -------------------------------------------------------------------------- */
+      const handleFormSubmit = (e) => {
+        if (e) e.preventDefault();
+
+        // Enforce OTP verification before final submission to prevent fake entries
+        if (!isVerified) {
+          showToast("🔒 Security Check: Please complete quick OTP verification to prevent fake results.");
+          handleOpenOtpModal();
+          return;
+        }
+
+        const stateObj = ALL_STATES_UT_DATA.find(s => s.name === formData.state) || { id: "IN" };
+        const randId = `SE2027-${stateObj.id}-${Math.floor(100000 + Math.random() * 900000)}`;
+        
+        const newPass = {
+          seId: randId,
+          headName: formData.headName || "Citizen Applicant",
+          phone: formData.headPhone ? formData.headPhone.replace(/(\d{3})\d{4}(\d{3})/, '$1****$2') : "982****820",
+          state: formData.state,
+          district: formData.district,
+          membersCount: formData.members.length,
+          houseType: formData.houseType,
+          timestamp: new Date().toISOString(),
+          zkProofHash: "0x" + Array.from({length: 32}, () => Math.floor(Math.random()*16).toString(16)).join(""),
+          differentialPrivacyEpsilon: "0.50 (Laplace Mechanism)",
+          hmacSignature: "SHA256:VERIFIED_GOI_ORGI_2027",
+          status: "Verified Authentic Citizen",
+          verificationToken: verifiedTokenId || "UIDAI-DPI-849201",
+          ecoBadge: "🌱 1 Virtual Tree Planted (Nagar Van Initiative)"
+        };
+
+        setGeneratedPass(newPass);
+        setBaseSelfEnumCount(prev => prev + 1);
+
+        const newRecord = {
+          id: randId,
+          headName: formData.headName || "Citizen Applicant",
+          state: formData.state,
+          district: formData.district,
+          members: formData.members.length,
+          houseType: formData.houseType,
+          water: formData.waterSource,
+          lpg: formData.lpgConnection === "Yes",
+          power: formData.electricity === "Yes",
+          broadband: formData.broadband.includes("Yes") || formData.broadband.includes("Fiber"),
+          submittedAt: "Just now",
+          status: "Verified Authentic",
+          verificationMode: `Mobile OTP + ${verifiedTokenId || 'UIDAI #VD-8492'}`,
+          zkHash: newPass.zkProofHash.slice(0, 10) + "..." + newPass.zkProofHash.slice(-4),
+          diffEpsilon: 0.5
+        };
+
+        setRecords(prev => [newRecord, ...prev]);
+
+        if (window.confetti) {
+          window.confetti({
+            particleCount: 110,
+            spread: 85,
+            origin: { y: 0.6 }
+          });
+        }
+
+        setFormStep(4);
+        showToast("🎉 Census record successfully verified and recorded! 1 Tree Seeded.");
+      };
+
+      /* --------------------------------------------------------------------------
+         MODULE 8: NITI-DRISHTI PREDICTIVE POLICY VISUALIZER ENGINE
+         -------------------------------------------------------------------------- */
+      const handleGeneratePolicyBrief = () => {
+        const { urbanizationRate, elderlyRatio, cleanEnergyRate, femaleWorkforce } = policyParams;
+        
+        const estHospitals = Math.round(urbanizationRate * 12.5 + elderlyRatio * 24);
+        const estSchools = Math.round((100 - elderlyRatio) * 18.2);
+        const estTransitFleet = Math.round(urbanizationRate * 45 + cleanEnergyRate * 15);
+        const estSolarGridLoad = Math.round(cleanEnergyRate * 3.4);
+
+        const brief = {
+          title: "Niti-Drishti Strategic Infrastructure Roadmap (2030-2040)",
+          generatedAt: new Date().toLocaleString(),
+          demographicScenario: {
+            urbanization: `${urbanizationRate}% Projected Urban Density`,
+            elderlyCohort: `${elderlyRatio}% Senior Citizen Dependency Index`,
+            cleanEnergy: `${cleanEnergyRate}% Green Grid Target`,
+            femaleParticipation: `${femaleWorkforce}% Female Workforce Ratio`
+          },
+          predictions: [
+            { domain: "🏥 Healthcare & Geriatric Care", metric: `+${estHospitals} Speciality Health Centers / District`, recommendation: "High senior ratio demands dedicated district geriatric palliative clinics." },
+            { domain: "🎓 Education & Digital Skill Hubs", metric: `+${estSchools} Smart Anganwadis & AI Poly-institutes`, recommendation: "Accelerate smart digital skill nodes tailored for emerging Tier-2 & Tier-3 hubs." },
+            { domain: "🚆 Clean Public Transit & EV Corridors", metric: `+${estTransitFleet} Electric Bus Rapid Transit (e-BRTS)`, recommendation: "Rapid urban density demands dedicated zero-emission intra-city high frequency transit loops." },
+            { domain: "⚡ Green Energy & Rooftop Solar", metric: `${estSolarGridLoad} GW Decentralized Solar Grid Capacity`, recommendation: "Mandate rooftop solar arrays for all new multi-family pucca dwellings." }
+          ],
+          aiSummary: `Based on real-time crowdsourced Census 2027 parameters, the model projects an accelerated demand for senior health clusters and electric multi-modal transport.`
+        };
+
+        setGeneratedBrief(brief);
+        showToast("📊 Niti-Drishti simulated 2030-2040 policy projections!");
+      };
+
+      const handleVerifyCode = () => {
+        const found = records.find(r => r.id.toLowerCase() === scannedCodeInput.trim().toLowerCase());
+        if (found || scannedCodeInput.includes("SE2027")) {
+          setVerificationResult({
+            valid: true,
+            seId: scannedCodeInput.toUpperCase(),
+            state: found ? found.state : "Maharashtra",
+            district: found ? found.district : "Pune Urban Node",
+            members: found ? found.members : 4,
+            zkCheck: "VALID (HMAC-SHA256 Match)",
+            verificationStatus: "Verified Authentic Citizen (OTP & UIDAI Checked)",
+            anonymizedProof: "0x89f2...zkValid",
+            diffPrivacy: "Protected (ε=0.50 Laplace Noise applied)",
+            ecoStatus: "🌱 Verified Eco-Citizen (Paperless Submission)",
+            verifiedTime: new Date().toLocaleTimeString()
+          });
+        } else {
+          setVerificationResult({
+            valid: false,
+            message: "Invalid token or signature mismatch. Record not found in local cryptographic cache."
+          });
+        }
+      };
+
+      // Filtered State Schedule
+      const filteredSchedule = useMemo(() => {
+        return ALL_STATES_UT_DATA.filter(st => {
+          const matchSearch = st.name.toLowerCase().includes(scheduleSearch.toLowerCase()) ||
+                              st.nameHi.includes(scheduleSearch) ||
+                              st.id.toLowerCase().includes(scheduleSearch.toLowerCase()) ||
+                              st.capital.toLowerCase().includes(scheduleSearch.toLowerCase());
+          const matchZone = selectedZone === "All" || st.zone === selectedZone || (selectedZone === "UTs" && st.isUT);
+          return matchSearch && matchZone;
+        });
+      }, [scheduleSearch, selectedZone]);
+
+      // Filtered State Modal Directory
+      const modalFilteredStates = useMemo(() => {
+        return ALL_STATES_UT_DATA.filter(st => {
+          const matchSearch = st.name.toLowerCase().includes(stateModalSearch.toLowerCase()) ||
+                              st.nameHi.includes(stateModalSearch) ||
+                              st.capital.toLowerCase().includes(stateModalSearch.toLowerCase()) ||
+                              st.id.toLowerCase().includes(stateModalSearch.toLowerCase());
+          const matchZone = stateModalZone === "All" || st.zone === stateModalZone || (stateModalZone === "UTs" && st.isUT);
+          return matchSearch && matchZone;
+        });
+      }, [stateModalSearch, stateModalZone]);
+
+      // Filtered Admin Records
+      const filteredRecords = useMemo(() => {
+        return records.filter(rec => {
+          const matchSearch = rec.headName.toLowerCase().includes(adminSearch.toLowerCase()) ||
+                              rec.id.toLowerCase().includes(adminSearch.toLowerCase()) ||
+                              rec.state.toLowerCase().includes(adminSearch.toLowerCase());
+          const matchStatus = adminStatusFilter === "All" || 
+                              (adminStatusFilter === "Verified" && rec.status.includes("Verified")) ||
+                              (adminStatusFilter === "Blocked" && rec.status.includes("Blocked"));
+          return matchSearch && matchStatus;
+        });
+      }, [records, adminSearch, adminStatusFilter]);
+
+      // Render QR Code inside pass container
+      useEffect(() => {
+        if (generatedPass && document.getElementById("qrcode-container")) {
+          document.getElementById("qrcode-container").innerHTML = "";
+          try {
+            new QRCode(document.getElementById("qrcode-container"), {
+              text: JSON.stringify({
+                id: generatedPass.seId,
+                h: generatedPass.zkProofHash,
+                token: generatedPass.verificationToken,
+                m: generatedPass.membersCount,
+                sig: generatedPass.hmacSignature,
+                status: "VERIFIED_AUTHENTIC_CITIZEN"
+              }),
+              width: 140,
+              height: 140,
+              colorDark: "#0f172a",
+              colorLight: "#ffffff",
+              correctLevel: QRCode.CorrectLevel.H
+            });
+          } catch(e) {
+            console.error("QR creation error", e);
+          }
+        }
+      }, [generatedPass, formStep, activeTab]);
+
+
+      // Chart.js initialization for Analytics tab
+      useEffect(() => {
+        if (activeTab === 'analytics') {
+          const ctxPyramid = document.getElementById('chart-pyramid');
+          let pyramidChart = null;
+          if (ctxPyramid) {
+            pyramidChart = new Chart(ctxPyramid, {
+              type: 'bar',
+              data: {
+                labels: ['0-14 Yrs', '15-29 Yrs', '30-44 Yrs', '45-59 Yrs', '60+ Yrs'],
+                datasets: [
+                  { label: 'Male (%)', data: [-12.8, -14.2, -11.9, -7.8, -4.5], backgroundColor: '#0284c7' },
+                  { label: 'Female (%)', data: [11.9, 13.6, 11.4, 7.6, 4.3], backgroundColor: '#ff8000' }
+                ]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: { labels: { color: theme === 'light' ? '#334155' : '#94a3b8' } },
+                  tooltip: {
+                    callbacks: {
+                      label: (ctx) => `${ctx.dataset.label}: ${Math.abs(ctx.raw)}%`
+                    }
+                  }
+                },
+                scales: {
+                  x: { stacked: true, grid: { color: 'rgba(150,150,150,0.1)' } },
+                  y: { stacked: true, grid: { color: 'rgba(150,150,150,0.1)' }, ticks: { callback: (v) => `${Math.abs(v)}%` } }
+                }
+              }
+            });
+          }
+
+          const ctxRadar = document.getElementById('chart-amenities');
+          let radarChart = null;
+          if (ctxRadar) {
+            radarChart = new Chart(ctxRadar, {
+              type: 'radar',
+              data: {
+                labels: ['Piped Water', 'LPG / PNG', 'Electricity', 'Broadband', 'Pucca House', 'EV / Vehicle'],
+                datasets: [
+                  { label: 'Urban (%)', data: [92, 95, 99, 86, 89, 78], borderColor: '#ff8000', backgroundColor: 'rgba(255,128,0,0.2)' },
+                  { label: 'Rural (%)', data: [78, 84, 98, 52, 65, 62], borderColor: '#10b981', backgroundColor: 'rgba(16,185,129,0.2)' }
+                ]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: theme === 'light' ? '#334155' : '#94a3b8' } } },
+                scales: {
+                  r: {
+                    grid: { color: 'rgba(150,150,150,0.15)' },
+                    ticks: { backdropColor: 'transparent' }
+                  }
+                }
+              }
+            });
+          }
+
+          return () => {
+            if (pyramidChart) pyramidChart.destroy();
+            if (radarChart) radarChart.destroy();
+          };
+        }
+      }, [activeTab, theme]);
+
+      // Dynamic Theme Classes
+      const themeBgClass = theme === 'light' 
+        ? 'bg-slate-50 text-slate-800' 
+        : theme === 'emerald' 
+        ? 'bg-[#0a1510] text-emerald-100' 
+        : 'bg-slate-950 text-slate-100';
+
+      const cardBgClass = theme === 'light'
+        ? 'bg-white border border-slate-200 shadow-sm text-slate-800'
+        : theme === 'emerald'
+        ? 'bg-[#12241c] border border-emerald-800/40 shadow-lg text-emerald-100'
+        : 'bg-slate-900/90 border border-slate-800 shadow-xl text-slate-100';
+
+      const inputBgClass = theme === 'light'
+        ? 'bg-slate-50 border-slate-300 text-slate-900 focus:bg-white focus:border-saffron-500'
+        : theme === 'emerald'
+        ? 'bg-[#182f25] border-emerald-700/50 text-emerald-100 placeholder-emerald-600 focus:border-emerald-400'
+        : 'bg-slate-950 border-slate-700 text-slate-100 placeholder-slate-500 focus:border-saffron-500';
+
+      const textMutedClass = theme === 'light' ? 'text-slate-500' : theme === 'emerald' ? 'text-emerald-400' : 'text-slate-400';
+      const labelClass = theme === 'light' ? 'text-slate-700 font-medium' : theme === 'emerald' ? 'text-emerald-200 font-medium' : 'text-slate-200 font-medium';
+      const headingClass = theme === 'light' ? 'text-slate-900' : theme === 'emerald' ? 'text-emerald-50' : 'text-white';
+      const topStripClass = theme === 'emerald' 
+        ? 'bg-[#061008] border-b border-emerald-900 text-emerald-300'
+        : theme === 'dark'
+        ? 'bg-slate-950/95 border-b border-slate-800 text-slate-300'
+        : 'bg-slate-100 border-b border-slate-200 text-slate-700';
+      const navBarClass = theme === 'light'
+        ? 'bg-white/95 border-b border-slate-200 shadow-sm'
+        : theme === 'emerald'
+        ? 'bg-[#061008]/95 border-b border-emerald-900 shadow-lg'
+        : 'bg-slate-900/90 border-b border-slate-800 shadow-lg';
+      const selectedLang = INDIAN_LANGUAGES.find(l => l.code === lang) || INDIAN_LANGUAGES[0];
+
+      // ==========================================
+      // WELCOME SPLASH SCREEN
+      // ==========================================
+      if (showWelcome) {
+        return (
+          <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#0f172a] flex items-center justify-center p-4 relative overflow-hidden">
+            {/* Animated background orbs */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-saffron-500/10 blur-3xl animate-pulse-slow"></div>
+              <div className="absolute bottom-[-15%] right-[-10%] w-[600px] h-[600px] rounded-full bg-emerald-500/10 blur-3xl animate-pulse-slow" style={{animationDelay:'1.2s'}}></div>
+              <div className="absolute top-[30%] right-[20%] w-[300px] h-[300px] rounded-full bg-blue-500/8 blur-3xl animate-pulse-slow" style={{animationDelay:'0.6s'}}></div>
+            </div>
+
+            <div className="relative z-10 w-full max-w-2xl text-center" style={{animation:'fadeIn 0.6s ease-out'}}>
+              {/* National Emblem Area */}
+              <div className="flex justify-center mb-6">
+                <div className="w-24 h-24 rounded-2xl bg-gradient-to-tr from-saffron-500 via-white to-emerald-500 p-[3px] shadow-2xl">
+                  <div className="w-full h-full bg-[#0f172a] rounded-[14px] flex items-center justify-center text-5xl">
+                    🇮🇳
+                  </div>
+                </div>
+              </div>
+
+              {/* Tiranga stripe */}
+              <div className="flex justify-center gap-0 mb-6">
+                <div className="h-1.5 w-24 bg-[#ff9933] rounded-l-full"></div>
+                <div className="h-1.5 w-24 bg-white"></div>
+                <div className="h-1.5 w-24 bg-[#138808] rounded-r-full"></div>
+              </div>
+
+              <p className="text-saffron-400 font-extrabold text-xs tracking-[0.3em] uppercase mb-3">Ministry of Home Affairs • Govt. of India</p>
+              <h1 className="text-4xl sm:text-5xl font-heading font-black text-white mb-2">
+                Census <span className="text-saffron-400">2027</span>
+              </h1>
+              <p className="text-xl text-white/80 font-semibold mb-1">डिजिटल जनगणना • Digital Census</p>
+              <p className="text-sm text-white/50 mb-8 max-w-lg mx-auto">India's First 100% Digital, Privacy-First & Citizen-Verified Population Enumeration</p>
+
+              {/* Feature Pills */}
+              <div className="flex flex-wrap justify-center gap-2 mb-8">
+                {[
+                  {icon:'🔐', label:'OTP Verified'},
+                  {icon:'🗺️', label:'36 States & UTs'},
+                  {icon:'🌿', label:'Paperless & Eco'},
+                  {icon:'🛡️', label:'DPDP 2023 Protected'},
+                  {icon:'🎙️', label:'22 Indian Languages'},
+                  {icon:'⚡', label:'ZK-Pass Instant'},
+                ].map(p => (
+                  <span key={p.label} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-white/80 text-xs font-semibold backdrop-blur-sm">
+                    {p.icon} {p.label}
+                  </span>
+                ))}
+              </div>
+
+              {/* Language Selection Row */}
+              <div className="mb-6">
+                <p className="text-white/50 text-xs mb-3 font-semibold tracking-widest uppercase">Select Your Language • अपनी भाषा चुनें</p>
+                <div className="flex flex-wrap justify-center gap-2 max-h-36 overflow-y-auto no-scrollbar">
+                  {INDIAN_LANGUAGES.map(l => (
+                    <button
+                      key={l.code}
+                      onClick={() => setLang(l.i18nKey)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all ${
+                        lang === l.i18nKey && l.i18nKey !== 'en'
+                          ? 'bg-saffron-500 text-slate-950 border-saffron-400 shadow-lg scale-105'
+                          : lang === 'en' && l.code === 'en'
+                          ? 'bg-saffron-500 text-slate-950 border-saffron-400 shadow-lg scale-105'
+                          : 'bg-white/10 text-white/80 border-white/20 hover:bg-white/20 hover:border-white/40'
+                      }`}
+                      title={l.native}
+                    >
+                      {l.native}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Enter Portal Button */}
+              <button
+                onClick={() => {
+                  setWelcomeStep(2);
+                  setTimeout(() => setShowWelcome(false), 400);
+                }}
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-saffron-500 to-orange-600 text-white font-extrabold text-lg shadow-2xl hover:scale-105 transition-all duration-200 hover:shadow-saffron-500/40"
+              >
+                <span>🚀</span>
+                <span>Enter Census 2027 Portal</span>
+                <span>→</span>
+              </button>
+              <p className="text-white/30 text-xs mt-4">Powered by GenAI • Zero-Knowledge Proofs • BhashaSetu AI</p>
+            </div>
+          </div>
+        );
+      }
+
+      return (
+        <div className={`min-h-screen flex flex-col justify-between ${themeBgClass} ${fontSize === 'large' ? 'text-base' : fontSize === 'xl' ? 'text-lg' : 'text-sm'}`}>
+          
+          {/* ==========================================
+              TOP OFFICIAL STRIP: TRUST & ACCESSIBILITY
+             ========================================== */}
+          <div className={`${topStripClass} text-xs py-1.5 px-4 sm:px-8 flex flex-wrap items-center justify-between gap-2 z-50`}>
+            
+            {/* Left: Official Govt Seal */}
+            <div className="flex items-center gap-2">
+              <span className="font-extrabold px-2 py-0.5 rounded text-[10px] bg-saffron-500 text-slate-950">
+                OFFICIAL
+              </span>
+              <span className="font-semibold">{t.govTag}</span>
+              <span className="opacity-40 hidden sm:inline">•</span>
+              <button
+                onClick={() => setShowTrustModal(true)}
+                className="hover:underline text-saffron-600 dark:text-saffron-400 font-medium flex items-center gap-1"
+              >
+                <span>🛡️ Legal Privacy Guarantee (Census Act 1948)</span>
+              </button>
+            </div>
+
+            {/* Right: Theme Switcher, Font Zoom, Language & Verification Status */}
+            <div className="flex items-center gap-3">
+              {/* Verification Status Pill */}
+              <div className="hidden md:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>{isVerified ? "🔒 Verified Citizen Session" : "🛡️ Anti-Bot Verification Active"}</span>
+              </div>
+
+              {/* Font Size Zoom Controls (A- / A / A+) */}
+              <div className="flex items-center bg-slate-200 dark:bg-slate-800 rounded-lg p-0.5 text-xs font-bold">
+                <button
+                  onClick={() => setFontSize('normal')}
+                  title="Default Font Size"
+                  className={`px-1.5 py-0.5 rounded ${fontSize === 'normal' ? 'bg-white dark:bg-slate-700 shadow-sm' : 'opacity-60'}`}
+                >
+                  A
+                </button>
+                <button
+                  onClick={() => setFontSize('large')}
+                  title="Large Font Size"
+                  className={`px-1.5 py-0.5 rounded ${fontSize === 'large' ? 'bg-white dark:bg-slate-700 shadow-sm' : 'opacity-60'}`}
+                >
+                  A+
+                </button>
+              </div>
+
+              {/* Theme Switcher Toggle */}
+              <div className="flex items-center bg-slate-200 dark:bg-slate-800 rounded-lg p-0.5 text-xs">
+                <button
+                  onClick={() => setTheme('light')}
+                  className={`px-2 py-0.5 rounded font-bold transition-all ${theme === 'light' ? 'bg-white text-slate-950 shadow-sm' : 'opacity-70'}`}
+                  title="Clean Government Light Mode"
+                >
+                  ☀️ Light
+                </button>
+                <button
+                  onClick={() => setTheme('dark')}
+                  className={`px-2 py-0.5 rounded font-bold transition-all ${theme === 'dark' ? 'bg-slate-900 text-white shadow-sm' : 'opacity-70'}`}
+                  title="Executive Slate Dark Mode"
+                >
+                  🌙 Dark
+                </button>
+                <button
+                  onClick={() => setTheme('emerald')}
+                  className={`px-2 py-0.5 rounded font-bold transition-all ${theme === 'emerald' ? 'bg-emerald-800 text-white shadow-sm' : 'opacity-70'}`}
+                  title="Vriksha Eco Green Mode"
+                >
+                  🌿 Eco
+                </button>
+              </div>
+
+              {/* Language Switcher */}
+              <div className="flex items-center bg-slate-200 dark:bg-slate-800 rounded-lg p-0.5 text-xs font-semibold">
+                <button
+                  onClick={() => setLang('en')}
+                  className={`px-2 py-0.5 rounded transition-all ${lang === 'en' ? 'bg-saffron-500 text-slate-950 font-bold shadow' : 'opacity-70'}`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLang('hi')}
+                  className={`px-2 py-0.5 rounded transition-all ${lang === 'hi' ? 'bg-saffron-500 text-slate-950 font-bold shadow' : 'opacity-70'}`}
+                >
+                  हिंदी
+                </button>
+                <button
+                  onClick={() => setLang('mr')}
+                  className={`px-2 py-0.5 rounded transition-all ${lang === 'mr' ? 'bg-saffron-500 text-slate-950 font-bold shadow' : 'opacity-70'}`}
+                >
+                  मराठी
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* ==========================================
+              PRIMARY NAVIGATION BAR
+             ========================================== */}
+          <header className={`sticky top-0 z-40 ${navBarClass} backdrop-blur-md`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+              
+              {/* Brand Logo & National Emblem */}
+              <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab('home')}>
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-saffron-500 via-white to-emerald-500 p-[2px] shadow-md flex items-center justify-center">
+                  <div className="w-full h-full bg-slate-900 rounded-[9px] flex items-center justify-center text-xl text-white">
+                    🏛️
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl font-heading font-black tracking-tight">
+                      CENSUS <span className="text-saffron-500">2027</span>
+                    </span>
+                    <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                      LIVE PORTAL
+                    </span>
+                  </div>
+                  <p className="text-[11px] opacity-75 font-medium">डिजिटल जनगणना • Digital & Privacy-First</p>
+                </div>
+              </div>
+
+              {/* Navigation Items */}
+              <nav className="hidden lg:flex items-center gap-1 text-xs font-semibold">
+                {[
+                  { id: 'home', label: t.navHome, icon: '🏠' },
+                  { id: 'schedule', label: 'All 36 States', icon: '🗺️', highlight: true },
+                  { id: 'roadmap', label: t.navRoadmap, icon: '📅' },
+                  { id: 'selfEnum', label: t.navSelfEnumerate, icon: '📝', cta: true },
+                  { id: 'admin', label: t.navAdmin, icon: '📊' },
+                  { id: 'green', label: 'Vriksha-Setu', icon: '🌱' },
+                  { id: 'voiceAI', label: 'BhashaSetu AI', icon: '🎙️' },
+                  { id: 'policyAI', label: 'Niti-Drishti', icon: '🧠' },
+                  { id: 'privacy', label: 'DPDP Shield', icon: '🛡️' }
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => setActiveTab(item.id)}
+                    className={`px-3 py-2 rounded-xl flex items-center gap-1.5 transition-all ${
+                      activeTab === item.id
+                        ? 'bg-saffron-500 text-slate-950 font-bold shadow-md'
+                        : item.cta
+                        ? 'bg-saffron-500/10 text-saffron-600 dark:text-saffron-400 border border-saffron-500/30 hover:bg-saffron-500/20'
+                        : 'opacity-80 hover:opacity-100 hover:bg-slate-200 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <span>{item.icon}</span>
+                    <span>{item.label}</span>
+                  </button>
+                ))}
+              </nav>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setShowStateModal(true)}
+                  className={`px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 border ${
+                    theme === 'light' ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800' : theme === 'emerald' ? 'bg-emerald-900/30 hover:bg-emerald-800/40 border-emerald-700 text-emerald-200' : 'bg-slate-800 hover:bg-slate-700 border-slate-700 text-slate-100'
+                  }`}
+                  title="Browse all 36 States without typing"
+                >
+                  <span>📍</span>
+                  <span className="hidden sm:inline">Pick State</span>
+                </button>
+
+                <button
+                  onClick={() => { setActiveTab('selfEnum'); }}
+                  className="px-4 py-2 rounded-xl bg-saffron-500 hover:bg-saffron-600 text-slate-950 font-extrabold text-xs shadow-md transition-all flex items-center gap-1.5"
+                >
+                  <span>📝</span>
+                  <span>{t.btnStartSelfEnum}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* ALL 36 STATES QUICK-BAR SCROLLER (Easy access row for everyone) */}
+            <div className={`border-t px-4 py-1.5 flex items-center gap-2 overflow-x-auto no-scrollbar ${
+              theme === 'light' ? 'border-slate-200 bg-slate-100/70' : theme === 'emerald' ? 'border-emerald-900 bg-[#061008]/70' : 'border-slate-800 bg-slate-950/70'
+            }`}>
+              <span className={`text-[11px] font-bold whitespace-nowrap flex items-center gap-1 ${
+                theme === 'emerald' ? 'text-emerald-400' : 'text-saffron-600'
+              }`}>
+                <span>⚡</span>
+                <span className="hidden sm:inline">Quick State Row:</span>
+              </span>
+              <div className="flex items-center gap-1.5">
+                {ALL_STATES_UT_DATA.slice(0, 18).map(st => (
+                  <button
+                    key={st.id}
+                    onClick={() => {
+                      setFormData(prev => ({ ...prev, state: st.name, district: st.capital }));
+                      showToast(`📍 Selected ${st.name} (${st.nameHi})`);
+                    }}
+                    className={`px-2 py-0.5 rounded-lg text-[11px] whitespace-nowrap font-medium transition-all ${
+                      formData.state === st.name
+                        ? 'bg-saffron-500 text-slate-950 font-bold shadow-sm'
+                        : theme === 'light' ? 'bg-white border border-slate-200 text-slate-700 opacity-85 hover:opacity-100 hover:border-saffron-400'
+                        : theme === 'emerald' ? 'bg-emerald-900/20 border border-emerald-800 text-emerald-200 opacity-85 hover:opacity-100 hover:border-emerald-400'
+                        : 'bg-slate-900 border border-slate-800 text-slate-300 opacity-85 hover:opacity-100 hover:border-saffron-400'
+                    }`}
+                  >
+                    <span>{st.icon}</span> <span>{st.name}</span>
+                  </button>
+                ))}
+                <button
+                  onClick={() => setShowStateModal(true)}
+                  className={`px-2 py-0.5 rounded-lg text-[11px] whitespace-nowrap font-bold border ${
+                    theme === 'emerald' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-600/40' : 'bg-saffron-500/20 text-saffron-600 border-saffron-500/40'
+                  }`}
+                >
+                  + View All 36 States &amp; UTs →
+                </button>
+              </div>
+            </div>
+          </header>
+
+          {/* Toast Notification Alert */}
+          {toastMessage && (
+            <div className="fixed bottom-6 right-6 z-50 max-w-md bg-slate-900 text-white border-2 border-saffron-500 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 animate-fadeIn">
+              <span className="text-xl">🇮🇳</span>
+              <p className="text-xs font-semibold">{toastMessage}</p>
+            </div>
+          )}
+
+          {/* ==========================================
+              MAIN CONTENT CONTAINER
+             ========================================== */}
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1">
+            
+            {/* VIEW 1: HOME OVERVIEW & QUICK ACCESS */}
+            {activeTab === 'home' && (
+              <div className="space-y-8 animate-fadeIn">
+                
+                {/* Hero Banner with Clean Aesthetics */}
+                <div className={`p-6 sm:p-10 rounded-3xl ${cardBgClass} relative overflow-hidden`}>
+                  <div className="relative z-10 max-w-3xl space-y-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-saffron-500/15 text-saffron-600 dark:text-saffron-400 text-xs font-extrabold border border-saffron-500/30">
+                      <span className="w-2 h-2 rounded-full bg-saffron-500 animate-pulse"></span>
+                      {t.heroBadge}
+                    </div>
+
+                    <h1 className="text-2xl sm:text-4xl font-heading font-black tracking-tight leading-snug">
+                      {t.heroTitle1} <br />
+                      <span className="text-gradient-tiranga">{t.heroTitleHighlight}</span>
+                    </h1>
+
+                    <p className={`text-xs sm:text-sm leading-relaxed ${textMutedClass}`}>
+                      {t.heroSubtitle}
+                    </p>
+
+                    {/* CTAs */}
+                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                      <button
+                        onClick={() => setActiveTab('selfEnum')}
+                        className="px-6 py-3 rounded-xl bg-saffron-500 hover:bg-saffron-600 text-slate-950 font-extrabold text-xs shadow-md transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
+                      >
+                        <span>📝</span>
+                        <span>{t.btnStartSelfEnum}</span>
+                      </button>
+
+                      <button
+                        onClick={() => setShowStateModal(true)}
+                        className="px-5 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs border border-slate-300 dark:border-slate-700 transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
+                      >
+                        <span>🗺️</span>
+                        <span>{t.btnBrowseStates}</span>
+                      </button>
+
+                      <button
+                        onClick={() => setActiveTab('voiceAI')}
+                        className="px-5 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs border border-slate-300 dark:border-slate-700 transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
+                      >
+                        <span>🎙️</span>
+                        <span>{t.btnTryVoiceAI}</span>
+                      </button>
+                    </div>
+
+                    {/* Trust Badges Bar */}
+                    <div className="pt-4 flex flex-wrap items-center gap-5 text-xs opacity-90 border-t border-slate-200 dark:border-slate-800">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-emerald-500 font-bold text-base">🛡️</span>
+                        <span>Census Act 1948 Legally Confidential</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-saffron-500 font-bold text-base">📲</span>
+                        <span>Mobile OTP Identity Verified</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-emerald-500 font-bold text-base">🌱</span>
+                        <span>100% Paperless Carbon Offset</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Real-Time Metrics */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {[
+                    { label: t.statTotalEnum, value: animatedHouseholdCount.toLocaleString('en-IN'), delta: "100% Genuine (OTP Checked)", icon: "👥", color: "text-saffron-600 dark:text-saffron-400" },
+                    { label: t.statFieldVerified, value: Math.round(animatedHouseholdCount * 0.81).toLocaleString('en-IN'), delta: "Offline QR Verifiable", icon: "✅", color: "text-emerald-600 dark:text-emerald-400" },
+                    { label: t.statSecurityScore, value: "100%", delta: "DPDP 2023 Compliant", icon: "🔐", color: "text-sky-600 dark:text-sky-400" },
+                    { label: t.statAvgTime, value: t.statSpeed, delta: "Voice & Touch Assisted", icon: "⚡", color: "text-purple-600 dark:text-purple-400" }
+                  ].map((st, idx) => (
+                    <div key={idx} className={`p-4 rounded-2xl ${cardBgClass} flex flex-col justify-between`}>
+                      <div className="flex items-center justify-between text-xs opacity-75 mb-1">
+                        <span>{st.label}</span>
+                        <span className="text-base">{st.icon}</span>
+                      </div>
+                      <div className="text-2xl sm:text-3xl font-heading font-black tracking-tight">
+                        {st.value}
+                      </div>
+                      <div className={`text-[11px] font-mono mt-1 font-semibold ${st.color}`}>
+                        {st.delta}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* VISUAL STATE ACCESS FEATURE BANNER */}
+                <div className={`p-6 rounded-3xl ${cardBgClass} space-y-4`}>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-saffron-500/15 text-saffron-600 dark:text-saffron-400">
+                        <span>🗺️</span> PAN-INDIA ACCESSIBILITY
+                      </div>
+                      <h2 className="text-xl font-heading font-extrabold mt-1">Easy Visual State & Union Territory Directory</h2>
+                      <p className={`text-xs ${textMutedClass}`}>Can't type or speak? Touch any state card below to immediately select and view active census windows.</p>
+                    </div>
+                    <button
+                      onClick={() => setShowStateModal(true)}
+                      className="px-4 py-2 rounded-xl bg-saffron-500 text-slate-950 font-bold text-xs shadow hover:bg-saffron-600 whitespace-nowrap self-start sm:self-auto"
+                    >
+                      Open Visual State Grid (36 States) →
+                    </button>
+                  </div>
+
+                  {/* 8 Major State Quick Cards */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 pt-2">
+                    {ALL_STATES_UT_DATA.slice(0, 8).map(st => (
+                      <button
+                        key={st.id}
+                        onClick={() => {
+                          setFormData(prev => ({ ...prev, state: st.name, district: st.capital }));
+                          showToast(`Selected ${st.name}`);
+                          setActiveTab('selfEnum');
+                        }}
+                        className={`p-3 rounded-xl border text-center transition-all ${
+                          formData.state === st.name 
+                            ? 'bg-saffron-500/20 border-saffron-500 ring-2 ring-saffron-400' 
+                            : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 hover:border-saffron-400'
+                        }`}
+                      >
+                        <span className="text-2xl block mb-1">{st.icon}</span>
+                        <div className="text-xs font-bold truncate">{st.name}</div>
+                        <div className="text-[10px] opacity-75">{st.nameHi}</div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Vriksha-Setu Green Offset Feature */}
+                <div className={`p-6 rounded-3xl ${cardBgClass} border-emerald-500/30 space-y-4`}>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+                        <span>🌱</span> {t.greenBadge}
+                      </div>
+                      <h3 className="text-xl font-heading font-extrabold mt-1">{t.greenTitle}</h3>
+                      <p className={`text-xs ${textMutedClass}`}>{t.greenSubtitle}</p>
+                    </div>
+                    <button
+                      onClick={() => setActiveTab('green')}
+                      className="px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs hover:bg-emerald-600 whitespace-nowrap self-start sm:self-auto"
+                    >
+                      View Green Ledger →
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+                      <span className="text-[11px] opacity-75 block">{t.statPaperSaved}</span>
+                      <div className="text-lg sm:text-xl font-black text-emerald-600 dark:text-emerald-400">
+                        {paperSavedSheets.toLocaleString('en-IN')}
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+                      <span className="text-[11px] opacity-75 block">{t.statCo2Avoided}</span>
+                      <div className="text-lg sm:text-xl font-black text-teal-600 dark:text-teal-400">
+                        {co2AvoidedKg.toLocaleString('en-IN')} kg
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+                      <span className="text-[11px] opacity-75 block">{t.statWaterSaved}</span>
+                      <div className="text-lg sm:text-xl font-black text-sky-600 dark:text-sky-400">
+                        {waterSavedLiters.toLocaleString('en-IN')} L
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700">
+                      <span className="text-[11px] opacity-75 block">{t.statTreesPlanted}</span>
+                      <div className="text-lg sm:text-xl font-black text-emerald-500 flex items-center gap-1">
+                        <span>🌳</span>
+                        <span>{virtualTreesSeeded.toLocaleString('en-IN')}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            )}
+
+            {/* VIEW 2: COMPLETE 36 STATES & UTs SCHEDULE */}
+            {activeTab === 'schedule' && (
+              <div className="space-y-6 animate-fadeIn">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <h2 className="text-2xl font-heading font-extrabold">{t.scheduleTitle}</h2>
+                    <p className={`text-xs ${textMutedClass}`}>{t.scheduleSubtitle}</p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2">
+                    <input
+                      type="text"
+                      value={scheduleSearch}
+                      onChange={(e) => setScheduleSearch(e.target.value)}
+                      placeholder={t.searchStatePlaceholder}
+                      className={`px-3.5 py-2 text-xs rounded-xl border ${inputBgClass} w-60`}
+                    />
+                    <select
+                      value={selectedZone}
+                      onChange={(e) => setSelectedZone(e.target.value)}
+                      className={`px-3 py-2 text-xs rounded-xl border ${inputBgClass}`}
+                    >
+                      <option value="All">{t.filterAll}</option>
+                      <option value="North">North Zone</option>
+                      <option value="South">South Zone</option>
+                      <option value="West">West Zone</option>
+                      <option value="East">East Zone</option>
+                      <option value="Central">Central Zone</option>
+                      <option value="North-East">North-East Zone</option>
+                      <option value="UTs">Union Territories (8)</option>
+                    </select>
+
+                    <button
+                      onClick={() => setShowStateModal(true)}
+                      className="px-3.5 py-2 rounded-xl bg-saffron-500 text-slate-950 font-bold text-xs shadow hover:bg-saffron-600"
+                    >
+                      🗺️ Visual Picker
+                    </button>
+                  </div>
+                </div>
+
+                {/* States Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {filteredSchedule.map((st) => (
+                    <div key={st.id} className={`p-4 rounded-2xl ${cardBgClass} space-y-3`}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2.5">
+                          <span className="w-8 h-8 rounded-xl bg-saffron-500/20 text-saffron-600 dark:text-saffron-400 font-bold flex items-center justify-center text-sm">
+                            {st.icon}
+                          </span>
+                          <div>
+                            <h3 className="text-sm font-bold">{st.name} <span className="opacity-70 text-xs font-normal">({st.nameHi})</span></h3>
+                            <span className={`text-[10px] ${textMutedClass}`}>{st.capital} • {st.districts} Districts</span>
+                          </div>
+                        </div>
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                          st.status === 'active'
+                            ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400'
+                            : st.status === 'completed'
+                            ? 'bg-sky-500/20 text-sky-600 dark:text-sky-400'
+                            : 'bg-amber-500/20 text-amber-600 dark:text-amber-400'
+                        }`}>
+                          {st.status === 'active' ? t.statusActive : (st.status === 'completed' ? t.statusCompleted : t.statusUpcoming)}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1 text-xs pt-1">
+                        <div className="flex justify-between">
+                          <span className={textMutedClass}>Phase 1 (Houselisting):</span>
+                          <span className="font-mono">{st.phase1Start} - {st.phase1End}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className={textMutedClass}>Target Households:</span>
+                          <span className="font-mono font-medium">{st.households}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className={textMutedClass}>Regional Helpline:</span>
+                          <span className="font-mono text-saffron-600 dark:text-saffron-400 font-semibold">{st.helpline}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between pt-2 border-t border-slate-200 dark:border-slate-800 text-[11px]">
+                        <span className="font-mono">{st.progress}% Enrolled</span>
+                        <button
+                          onClick={() => {
+                            setFormData(prev => ({ ...prev, state: st.name, district: st.capital }));
+                            showToast(`Selected ${st.name}`);
+                            setActiveTab('selfEnum');
+                          }}
+                          className="text-saffron-600 dark:text-saffron-400 font-bold hover:underline"
+                        >
+                          Fill Census Form for {st.id} →
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* VIEW 3: CITIZEN SELF-ENUMERATION (PART A) WITH OTP VERIFICATION & PICTOGRAMS */}
+            {activeTab === 'selfEnum' && (
+              <div className="space-y-6 animate-fadeIn max-w-4xl mx-auto">
+                <div className="text-center space-y-1.5">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-saffron-500/15 text-saffron-600 dark:text-saffron-400 text-xs font-bold">
+                    <span>📝</span> PART A: CITIZEN WORKFLOW
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-heading font-extrabold">{t.formTitle}</h2>
+                  <p className={`text-xs ${textMutedClass}`}>{t.formSubtitle}</p>
+                </div>
+
+                {/* Verification Status & Security Header Banner */}
+                <div className={`p-4 rounded-2xl border flex flex-col sm:flex-row items-center justify-between gap-3 ${
+                  isVerified 
+                    ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-800 dark:text-emerald-200' 
+                    : 'bg-amber-500/10 border-amber-500/40 text-amber-800 dark:text-amber-200'
+                }`}>
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{isVerified ? "✅" : "⚠️"}</span>
+                    <div>
+                      <h4 className="text-xs font-bold">
+                        {isVerified ? t.otpVerifiedTag : t.otpUnverifiedTag}
+                      </h4>
+                      <p className="text-[11px] opacity-80">
+                        {isVerified 
+                          ? `Authentic Citizen Token: ${verifiedTokenId || 'UIDAI-DPI-849201'} • Protected against fake spam` 
+                          : "Verify with mobile OTP to ensure genuine census results and receive your official digital pass."}
+                      </p>
+                    </div>
+                  </div>
+
+                  {!isVerified && (
+                    <button
+                      onClick={handleOpenOtpModal}
+                      className="px-4 py-2 rounded-xl bg-saffron-500 text-slate-950 font-extrabold text-xs hover:bg-saffron-600 shadow transition-all whitespace-nowrap"
+                    >
+                      {t.verifyOtpBtn}
+                    </button>
+                  )}
+                </div>
+
+                {/* Multi-Step Progress Tracker */}
+                <div className="grid grid-cols-4 gap-2">
+                  {[
+                    { step: 1, label: t.step1 },
+                    { step: 2, label: t.step2 },
+                    { step: 3, label: t.step3 },
+                    { step: 4, label: t.step4 }
+                  ].map((s) => (
+                    <button
+                      key={s.step}
+                      onClick={() => setFormStep(s.step)}
+                      className={`p-2.5 rounded-xl text-left border transition-all ${
+                        formStep === s.step
+                          ? 'bg-saffron-500/20 border-saffron-500 text-saffron-600 dark:text-saffron-400 font-bold ring-1 ring-saffron-400'
+                          : formStep > s.step
+                          ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium'
+                          : `${cardBgClass} opacity-60`
+                      }`}
+                    >
+                      <div className="text-[10px] font-mono">Step 0{s.step}</div>
+                      <div className="text-xs truncate font-semibold">{s.label}</div>
+                    </button>
+                  ))}
+                </div>
+
+                {/* FORM STEP 1: DWELLING & EASY STATE SELECTION */}
+                {formStep === 1 && (
+                  <div className={`p-6 sm:p-8 rounded-3xl ${cardBgClass} space-y-6`}>
+                    <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                      <div>
+                        <h3 className="text-base font-heading font-bold">{t.step1}</h3>
+                        <p className={`text-xs ${textMutedClass}`}>Location, contact details and housing amenities.</p>
+                      </div>
+                      <button
+                        onClick={() => speakText("कृपया परिवार के मुखिया का नाम, पता, राज्य और मकान का प्रकार चुनें।")}
+                        className="text-xs text-saffron-600 dark:text-saffron-400 font-medium flex items-center gap-1 hover:underline"
+                      >
+                        <span>🔊 Read Out</span>
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Name */}
+                      <div>
+                        <label className="block text-xs font-semibold mb-1">{t.headName} *</label>
+                        <input
+                          type="text"
+                          value={formData.headName}
+                          onChange={(e) => setFormData({...formData, headName: e.target.value})}
+                          placeholder="e.g. Rajesh S. Sharma"
+                          className={`w-full px-3.5 py-2.5 rounded-xl border text-xs ${inputBgClass}`}
+                          required
+                        />
+                      </div>
+
+                      {/* Phone & OTP Button */}
+                      <div>
+                        <label className="block text-xs font-semibold mb-1">{t.headPhone} *</label>
+                        <div className="flex gap-2">
+                          <input
+                            type="tel"
+                            value={formData.headPhone}
+                            onChange={(e) => setFormData({...formData, headPhone: e.target.value})}
+                            placeholder="10-digit mobile number"
+                            className={`flex-1 px-3.5 py-2.5 rounded-xl border text-xs ${inputBgClass}`}
+                          />
+                          <button
+                            type="button"
+                            onClick={handleOpenOtpModal}
+                            className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap ${
+                              isVerified ? 'bg-emerald-500 text-white' : 'bg-saffron-500 text-slate-950 hover:bg-saffron-600'
+                            }`}
+                          >
+                            {isVerified ? "✓ Verified" : "Verify OTP"}
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* EASY STATE PICKER (Touch or Dropdown) */}
+                      <div className="sm:col-span-2 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <label className="text-xs font-bold text-saffron-600 dark:text-saffron-400">
+                            {t.stateSelect} (All 36 States & UTs Accessible) *
+                          </label>
+                          <button
+                            type="button"
+                            onClick={() => setShowStateModal(true)}
+                            className="px-3 py-1 rounded-lg bg-saffron-500 text-slate-950 font-extrabold text-xs shadow hover:bg-saffron-600 flex items-center gap-1"
+                          >
+                            <span>🗺️</span>
+                            <span>{t.pickStateBtn}</span>
+                          </button>
+                        </div>
+
+                        <div className="flex items-center gap-2">
+                          <select
+                            value={formData.state}
+                            onChange={(e) => {
+                              const match = ALL_STATES_UT_DATA.find(s => s.name === e.target.value);
+                              setFormData({
+                                ...formData,
+                                state: e.target.value,
+                                district: match ? match.capital : formData.district
+                              });
+                            }}
+                            className={`w-full px-3.5 py-2.5 rounded-xl border text-xs font-medium ${inputBgClass}`}
+                          >
+                            {ALL_STATES_UT_DATA.map(st => (
+                              <option key={st.id} value={st.name}>
+                                {st.name} ({st.nameHi}) - {st.zone} Zone
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+
+                      {/* District */}
+                      <div>
+                        <label className="block text-xs font-semibold mb-1">{t.district} *</label>
+                        <input
+                          type="text"
+                          value={formData.district}
+                          onChange={(e) => setFormData({...formData, district: e.target.value})}
+                          className={`w-full px-3.5 py-2.5 rounded-xl border text-xs ${inputBgClass}`}
+                        />
+                      </div>
+
+                      {/* Pincode */}
+                      <div>
+                        <label className="block text-xs font-semibold mb-1">{t.pincode} *</label>
+                        <input
+                          type="text"
+                          value={formData.pincode}
+                          onChange={(e) => setFormData({...formData, pincode: e.target.value})}
+                          className={`w-full px-3.5 py-2.5 rounded-xl border text-xs ${inputBgClass}`}
+                        />
+                      </div>
+
+                      {/* Address */}
+                      <div className="sm:col-span-2">
+                        <label className="block text-xs font-semibold mb-1">{t.address} *</label>
+                        <input
+                          type="text"
+                          value={formData.address}
+                          onChange={(e) => setFormData({...formData, address: e.target.value})}
+                          className={`w-full px-3.5 py-2.5 rounded-xl border text-xs ${inputBgClass}`}
+                        />
+                      </div>
+
+                      {/* PICTOGRAM TOUCH SELECTOR: HOUSE STRUCTURE */}
+                      <div className="sm:col-span-2 space-y-1.5 pt-2">
+                        <label className="block text-xs font-bold">{t.houseType} (Touch Icon to Select):</label>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                          {[
+                            { val: "Owned (Pucca)", icon: "🏠", label: "Pucca House", sub: "Concrete / Brick" },
+                            { val: "Rented (Apartment)", icon: "🏢", label: "Flat / Apartment", sub: "Multi-Storey" },
+                            { val: "Owned (Semi-Pucca)", icon: "🏡", label: "Semi-Pucca", sub: "Stone / Tiled" },
+                            { val: "Owned (Kutcha)", icon: "🛖", label: "Kutcha Dwelling", sub: "Mud / Thatch" }
+                          ].map(opt => (
+                            <button
+                              key={opt.val}
+                              type="button"
+                              onClick={() => setFormData({...formData, houseType: opt.val})}
+                              className={`p-3 rounded-xl border text-left transition-all ${
+                                formData.houseType === opt.val
+                                  ? 'bg-saffron-500/20 border-saffron-500 ring-2 ring-saffron-400'
+                                  : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 hover:border-saffron-400'
+                              }`}
+                            >
+                              <span className="text-xl block mb-1">{opt.icon}</span>
+                              <div className="text-xs font-bold truncate">{opt.label}</div>
+                              <div className={`text-[10px] ${textMutedClass}`}>{opt.sub}</div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* PICTOGRAM TOUCH SELECTOR: DRINKING WATER */}
+                      <div className="sm:col-span-2 space-y-1.5 pt-2">
+                        <label className="block text-xs font-bold">{t.waterSource} (Touch to Select):</label>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                          {[
+                            { val: "Treated Piped Tap Water", icon: "🚰", label: "Piped Tap Water", sub: "Jal Jeevan Mission" },
+                            { val: "Untreated Tap / Borewell", icon: "💧", label: "Borewell / Tube Well", sub: "Groundwater" },
+                            { val: "Handpump / Tube Well", icon: "🪣", label: "Handpump / Well", sub: "Community Supply" },
+                            { val: "Covered Well / Tanker", icon: "🚚", label: "Tanker / Bottled", sub: "Delivered Water" }
+                          ].map(opt => (
+                            <button
+                              key={opt.val}
+                              type="button"
+                              onClick={() => setFormData({...formData, waterSource: opt.val})}
+                              className={`p-3 rounded-xl border text-left transition-all ${
+                                formData.waterSource === opt.val
+                                  ? 'bg-emerald-500/20 border-emerald-500 ring-2 ring-emerald-400'
+                                  : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 hover:border-emerald-400'
+                              }`}
+                            >
+                              <span className="text-xl block mb-1">{opt.icon}</span>
+                              <div className="text-xs font-bold truncate">{opt.label}</div>
+                              <div className={`text-[10px] ${textMutedClass}`}>{opt.sub}</div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* CLEAN COOKING & BROADBAND */}
+                      <div>
+                        <label className="block text-xs font-semibold mb-1">{t.lpgConnection}</label>
+                        <select
+                          value={formData.lpgConnection}
+                          onChange={(e) => setFormData({...formData, lpgConnection: e.target.value})}
+                          className={`w-full px-3.5 py-2.5 rounded-xl border text-xs ${inputBgClass}`}
+                        >
+                          <option value="Yes">🔥 Yes (LPG Cylinder / Piped PNG)</option>
+                          <option value="No">🪵 No (Traditional Firewood / Biomass)</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold mb-1">{t.broadband}</label>
+                        <select
+                          value={formData.broadband}
+                          onChange={(e) => setFormData({...formData, broadband: e.target.value})}
+                          className={`w-full px-3.5 py-2.5 rounded-xl border text-xs ${inputBgClass}`}
+                        >
+                          <option value="Yes (Fiber / FTTH)">🌐 Yes (High-Speed Fiber / Broadband)</option>
+                          <option value="Mobile Internet Only">📱 Mobile 4G / 5G Internet Only</option>
+                          <option value="No Internet">🚫 No Internet Connection</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end pt-4">
+                      <button
+                        onClick={() => {
+                          if (!formData.headName) {
+                            showToast("Please enter Head of Household name.");
+                            return;
+                          }
+                          setFormStep(2);
+                        }}
+                        className="px-6 py-2.5 rounded-xl bg-saffron-500 hover:bg-saffron-600 text-slate-950 font-bold text-xs transition-all flex items-center gap-2 shadow"
+                      >
+                        <span>{t.btnNext}</span>
+                        <span>→</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* FORM STEP 2: HOUSEHOLD COMPOSITION */}
+                {formStep === 2 && (
+                  <div className={`p-6 sm:p-8 rounded-3xl ${cardBgClass} space-y-6`}>
+                    <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                      <div>
+                        <h3 className="text-base font-heading font-bold">{t.step2}</h3>
+                        <p className={`text-xs ${textMutedClass}`}>Record living family members in this household.</p>
+                      </div>
+                      <button
+                        onClick={() => {
+                          const newMember = {
+                            name: `Family Member ${formData.members.length + 1}`,
+                            relation: "Spouse",
+                            age: "38",
+                            gender: "Female",
+                            marital: "Married",
+                            edu: "Graduate",
+                            occ: "Services",
+                            motherTongue: "Marathi"
+                          };
+                          setFormData({...formData, members: [...formData.members, newMember]});
+                          showToast("Added family member card.");
+                        }}
+                        className="px-3.5 py-1.5 rounded-xl bg-emerald-500 text-slate-950 text-xs font-bold hover:bg-emerald-600 shadow flex items-center gap-1.5"
+                      >
+                        <span>{t.addMemberBtn}</span>
+                      </button>
+                    </div>
+
+                    <div className="space-y-3">
+                      {formData.members.map((m, idx) => (
+                        <div key={idx} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-bold text-saffron-600 dark:text-saffron-400">
+                              Person #{idx + 1}: {idx === 0 ? "Head of Household" : m.relation}
+                            </span>
+                            {idx > 0 && (
+                              <button
+                                onClick={() => {
+                                  const updated = formData.members.filter((_, i) => i !== idx);
+                                  setFormData({...formData, members: updated});
+                                }}
+                                className="text-[11px] text-rose-500 font-bold hover:underline"
+                              >
+                                Remove
+                              </button>
+                            )}
+                          </div>
+
+                          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div>
+                              <label className="block text-[11px] font-medium mb-1">Name</label>
+                              <input
+                                type="text"
+                                value={m.name}
+                                onChange={(e) => {
+                                  const updated = [...formData.members];
+                                  updated[idx].name = e.target.value;
+                                  setFormData({...formData, members: updated});
+                                }}
+                                className={`w-full px-3 py-1.5 rounded-lg border text-xs ${inputBgClass}`}
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[11px] font-medium mb-1">{t.memberRelation}</label>
+                              <select
+                                value={m.relation}
+                                onChange={(e) => {
+                                  const updated = [...formData.members];
+                                  updated[idx].relation = e.target.value;
+                                  setFormData({...formData, members: updated});
+                                }}
+                                className={`w-full px-3 py-1.5 rounded-lg border text-xs ${inputBgClass}`}
+                              >
+                                <option value="Head">Head</option>
+                                <option value="Spouse">Spouse</option>
+                                <option value="Son">Son</option>
+                                <option value="Daughter">Daughter</option>
+                                <option value="Parent">Parent</option>
+                                <option value="Sibling">Sibling</option>
+                              </select>
+                            </div>
+
+                            <div>
+                              <label className="block text-[11px] font-medium mb-1">{t.memberAge}</label>
+                              <input
+                                type="number"
+                                value={m.age}
+                                onChange={(e) => {
+                                  const updated = [...formData.members];
+                                  updated[idx].age = e.target.value;
+                                  setFormData({...formData, members: updated});
+                                }}
+                                className={`w-full px-3 py-1.5 rounded-lg border text-xs ${inputBgClass}`}
+                              />
+                            </div>
+
+                            <div>
+                              <label className="block text-[11px] font-medium mb-1">{t.memberGender}</label>
+                              <select
+                                value={m.gender}
+                                onChange={(e) => {
+                                  const updated = [...formData.members];
+                                  updated[idx].gender = e.target.value;
+                                  setFormData({...formData, members: updated});
+                                }}
+                                className={`w-full px-3 py-1.5 rounded-lg border text-xs ${inputBgClass}`}
+                              >
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Transgender">Transgender</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex justify-between pt-4">
+                      <button
+                        onClick={() => setFormStep(1)}
+                        className="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 font-semibold text-xs"
+                      >
+                        ← {t.btnPrevious}
+                      </button>
+                      <button
+                        onClick={() => setFormStep(3)}
+                        className="px-6 py-2.5 rounded-xl bg-saffron-500 hover:bg-saffron-600 text-slate-950 font-bold text-xs shadow flex items-center gap-2"
+                      >
+                        <span>{t.btnNext}</span>
+                        <span>→</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* FORM STEP 3: SOCIO-ECONOMICS */}
+                {formStep === 3 && (
+                  <div className={`p-6 sm:p-8 rounded-3xl ${cardBgClass} space-y-6`}>
+                    <div className="border-b border-slate-200 dark:border-slate-800 pb-3">
+                      <h3 className="text-base font-heading font-bold">{t.step3}</h3>
+                      <p className={`text-xs ${textMutedClass}`}>Education, primary occupation and mother tongue.</p>
+                    </div>
+
+                    <div className="space-y-4">
+                      {formData.members.map((m, idx) => (
+                        <div key={idx} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-3">
+                          <h4 className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                            {m.name} ({m.relation})
+                          </h4>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                              <label className="block text-[11px] font-medium mb-1">{t.memberEdu}</label>
+                              <select
+                                value={m.edu}
+                                onChange={(e) => {
+                                  const updated = [...formData.members];
+                                  updated[idx].edu = e.target.value;
+                                  setFormData({...formData, members: updated});
+                                }}
+                                className={`w-full px-3 py-1.5 rounded-lg border text-xs ${inputBgClass}`}
+                              >
+                                <option value="Primary / Middle School">Primary / Middle School</option>
+                                <option value="Secondary / Matriculation">Secondary / Matriculation</option>
+                                <option value="Higher Secondary (10+2)">Higher Secondary (10+2)</option>
+                                <option value="Graduate / Professional Degree">Graduate / Professional Degree</option>
+                                <option value="Post-Graduate / Doctorate">Post-Graduate / Doctorate</option>
+                              </select>
+                            </div>
+
+                            <div>
+                              <label className="block text-[11px] font-medium mb-1">{t.memberOcc}</label>
+                              <select
+                                value={m.occ}
+                                onChange={(e) => {
+                                  const updated = [...formData.members];
+                                  updated[idx].occ = e.target.value;
+                                  setFormData({...formData, members: updated});
+                                }}
+                                className={`w-full px-3 py-1.5 rounded-lg border text-xs ${inputBgClass}`}
+                              >
+                                <option value="Agriculture & Farming">Agriculture & Farming</option>
+                                <option value="IT / Services / Professional">IT / Services / Professional</option>
+                                <option value="Manufacturing & Industrial">Manufacturing & Industrial</option>
+                                <option value="Self-Employed / Trade">Self-Employed / Trade</option>
+                                <option value="Government / PSU">Government / PSU</option>
+                                <option value="Homemaker / Student">Homemaker / Student</option>
+                              </select>
+                            </div>
+
+                            <div>
+                              <label className="block text-[11px] font-medium mb-1">{t.motherTongue}</label>
+                              <input
+                                type="text"
+                                value={m.motherTongue}
+                                onChange={(e) => {
+                                  const updated = [...formData.members];
+                                  updated[idx].motherTongue = e.target.value;
+                                  setFormData({...formData, members: updated});
+                                }}
+                                className={`w-full px-3 py-1.5 rounded-lg border text-xs ${inputBgClass}`}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex justify-between pt-4">
+                      <button
+                        onClick={() => setFormStep(2)}
+                        className="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 font-semibold text-xs"
+                      >
+                        ← {t.btnPrevious}
+                      </button>
+                      <button
+                        onClick={() => setFormStep(4)}
+                        className="px-6 py-2.5 rounded-xl bg-saffron-500 hover:bg-saffron-600 text-slate-950 font-bold text-xs shadow flex items-center gap-2"
+                      >
+                        <span>Review & Generate ZK-Pass</span>
+                        <span>→</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* FORM STEP 4: REVIEW & ZK-PASS WITH AUTHENTIC CITIZEN BADGE */}
+                {formStep === 4 && (
+                  <div className={`p-6 sm:p-8 rounded-3xl ${cardBgClass} space-y-6`}>
+                    <div className="border-b border-slate-200 dark:border-slate-800 pb-3">
+                      <h3 className="text-base font-heading font-bold">{t.step4}</h3>
+                      <p className={`text-xs ${textMutedClass}`}>Verify your summary and generate your verified offline cryptographic pass.</p>
+                    </div>
+
+                    {/* Summary */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs">
+                      <div>
+                        <span className={textMutedClass}>Head of Household:</span>
+                        <div className="font-bold text-sm">{formData.headName}</div>
+                        <span className={`${textMutedClass} mt-2 block`}>Address:</span>
+                        <div>{formData.address}, {formData.district}, {formData.state} - {formData.pincode}</div>
+                      </div>
+
+                      <div>
+                        <span className={textMutedClass}>Structure & Amenities:</span>
+                        <div className="font-semibold">{formData.houseType} • Water: {formData.waterSource}</div>
+                        <span className={`${textMutedClass} mt-2 block`}>Verification Status:</span>
+                        <div className="font-bold text-emerald-600 dark:text-emerald-400">
+                          {isVerified ? "✅ Identity & Phone Authenticated (100% Genuine)" : "⚠️ Unverified (Requires OTP on Submit)"}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Consent */}
+                    <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        id="dpdp-consent"
+                        checked={formData.dpdpConsent}
+                        onChange={(e) => setFormData({...formData, dpdpConsent: e.target.checked})}
+                        className="mt-1 w-4 h-4 rounded text-saffron-500 focus:ring-saffron-500"
+                      />
+                      <label htmlFor="dpdp-consent" className="text-xs leading-relaxed cursor-pointer">
+                        <strong className="block">{t.zkConsentTitle}</strong>
+                        {t.zkConsentText}
+                      </label>
+                    </div>
+
+                    {!generatedPass ? (
+                      <div className="flex justify-between pt-4">
+                        <button
+                          onClick={() => setFormStep(3)}
+                          className="px-5 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 font-semibold text-xs"
+                        >
+                          ← {t.btnPrevious}
+                        </button>
+                        <button
+                          onClick={handleFormSubmit}
+                          disabled={!formData.dpdpConsent}
+                          className="px-8 py-3 rounded-xl bg-saffron-500 hover:bg-saffron-600 text-slate-950 font-extrabold text-xs shadow-lg disabled:opacity-50 flex items-center gap-2"
+                        >
+                          <span>🛡️</span>
+                          <span>{isVerified ? t.btnSubmitCensus : "Verify OTP & Submit Census"}</span>
+                        </button>
+                      </div>
+                    ) : (
+                      /* OFFICIAL ZK-CENSUS PASS */
+                      <div className="p-6 rounded-3xl bg-white dark:bg-slate-950 border-2 border-saffron-500 shadow-2xl space-y-5 text-slate-900 dark:text-slate-100">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800 pb-3">
+                          <div className="flex items-center gap-3">
+                            <span className="text-3xl">🇮🇳</span>
+                            <div>
+                              <h4 className="text-base font-heading font-black">OFFICIAL ZK-CENSUS PASS 2027</h4>
+                              <p className="text-[11px] opacity-75">Office of the Registrar General & Census Commissioner, India</p>
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <span className="px-3 py-1 rounded-full bg-emerald-500 text-white font-mono text-xs font-bold">
+                              ✓ VERIFIED CITIZEN
+                            </span>
+                            <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-mono text-xs font-bold">
+                              🌱 ECO-SEED #1
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
+                          <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-50 dark:bg-white text-slate-950 border">
+                            <div id="qrcode-container" className="p-1"></div>
+                            <span className="text-[9px] font-mono font-bold mt-1 text-slate-600">OFFLINE SURVEYOR QR</span>
+                          </div>
+
+                          <div className="sm:col-span-2 space-y-1.5 text-xs">
+                            <div className="flex justify-between border-b border-slate-100 dark:border-slate-800 py-1">
+                              <span className={textMutedClass}>Census Reference ID:</span>
+                              <span className="font-mono font-bold text-saffron-600 dark:text-saffron-400 text-sm">{generatedPass.seId}</span>
+                            </div>
+                            <div className="flex justify-between border-b border-slate-100 dark:border-slate-800 py-1">
+                              <span className={textMutedClass}>Head of Household:</span>
+                              <span className="font-bold">{generatedPass.headName}</span>
+                            </div>
+                            <div className="flex justify-between border-b border-slate-100 dark:border-slate-800 py-1">
+                              <span className={textMutedClass}>Authenticated Token:</span>
+                              <span className="font-mono font-semibold text-emerald-600 dark:text-emerald-400">{generatedPass.verificationToken}</span>
+                            </div>
+                            <div className="flex justify-between border-b border-slate-100 dark:border-slate-800 py-1">
+                              <span className={textMutedClass}>Location:</span>
+                              <span>{generatedPass.district}, {generatedPass.state}</span>
+                            </div>
+                            <div className="flex justify-between py-1">
+                              <span className={textMutedClass}>Eco Tree Seed:</span>
+                              <span className="text-emerald-600 dark:text-emerald-400 font-bold">{generatedPass.ecoBadge}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-200 dark:border-slate-800">
+                          <span className={`text-[11px] ${textMutedClass}`}>
+                            💡 Show this QR code to the field enumerator for 5-second offline check.
+                          </span>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => window.print()}
+                              className="px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 font-bold text-xs"
+                            >
+                              🖨️ Print Pass
+                            </button>
+                            <button
+                              onClick={() => setActiveTab('admin')}
+                              className="px-4 py-2 rounded-xl bg-saffron-500 text-slate-950 font-bold text-xs"
+                            >
+                              View in Control Room →
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* VIEW 4: ADMIN CONTROL ROOM (PART B) */}
+            {activeTab === 'admin' && (
+              <div className="space-y-6 animate-fadeIn">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+                      <span>📊</span> PART B: ADMIN COMMAND CENTER
+                    </div>
+                    <h2 className="text-2xl font-heading font-extrabold mt-1">{t.adminTitle}</h2>
+                    <p className={`text-xs ${textMutedClass}`}>{t.adminSubtitle}</p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setDiffPrivacyView(!diffPrivacyView)}
+                      className={`px-3 py-2 rounded-xl text-xs font-bold border transition-all ${
+                        diffPrivacyView ? 'bg-sky-500/20 text-sky-600 dark:text-sky-300 border-sky-500/40' : 'bg-slate-200 dark:bg-slate-800'
+                      }`}
+                    >
+                      <span>🛡️ Privacy Mask: {diffPrivacyView ? "ON (ε=0.5)" : "OFF (Raw)"}</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Records Table */}
+                  <div className={`lg:col-span-2 p-6 rounded-3xl ${cardBgClass} space-y-4`}>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                      <h3 className="text-sm font-bold flex items-center gap-2">
+                        <span>📋</span>
+                        <span>{t.tabLiveFeed}</span>
+                        <span className={`text-xs font-normal ${textMutedClass}`}>({filteredRecords.length} records)</span>
+                      </h3>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="text"
+                          value={adminSearch}
+                          onChange={(e) => setAdminSearch(e.target.value)}
+                          placeholder="Filter by ID, State, Name..."
+                          className={`px-3 py-1.5 rounded-xl border text-xs ${inputBgClass} w-48`}
+                        />
+                        <select
+                          value={adminStatusFilter}
+                          onChange={(e) => setAdminStatusFilter(e.target.value)}
+                          className={`px-2.5 py-1.5 rounded-xl border text-xs ${inputBgClass}`}
+                        >
+                          <option value="All">All Records</option>
+                          <option value="Verified">Verified Only</option>
+                          <option value="Blocked">Blocked Fake</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left text-xs">
+                        <thead className="opacity-75 uppercase font-mono text-[10px] border-b border-slate-200 dark:border-slate-800">
+                          <tr>
+                            <th className="py-2.5 px-3">Census ID</th>
+                            <th className="py-2.5 px-3">Head of Household</th>
+                            <th className="py-2.5 px-3">State & District</th>
+                            <th className="py-2.5 px-3">Verification</th>
+                            <th className="py-2.5 px-3">Status</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                          {filteredRecords.map((rec) => (
+                            <tr key={rec.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                              <td className="py-3 px-3 font-mono font-bold text-saffron-600 dark:text-saffron-400">{rec.id}</td>
+                              <td className="py-3 px-3 font-medium">
+                                {diffPrivacyView ? rec.headName.split(' ')[0] + " ***" : rec.headName}
+                              </td>
+                              <td className="py-3 px-3">{rec.district}, {rec.state}</td>
+                              <td className="py-3 px-3 font-mono text-[11px] opacity-80">{rec.verificationMode}</td>
+                              <td className="py-3 px-3">
+                                <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
+                                  rec.status.includes('Verified')
+                                    ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300'
+                                    : 'bg-rose-500/20 text-rose-600 dark:text-rose-300'
+                                }`}>
+                                  {rec.status}
+                                </span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* Offline Scanner */}
+                  <div className={`p-6 rounded-3xl ${cardBgClass} space-y-4`}>
+                    <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+                      <span className="text-xl">🔍</span>
+                      <div>
+                        <h3 className="text-sm font-bold">Offline ZK-Token Scanner</h3>
+                        <p className={`text-[10px] ${textMutedClass}`}>Verify surveyor QR code offline</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <input
+                        type="text"
+                        value={scannedCodeInput}
+                        onChange={(e) => setScannedCodeInput(e.target.value)}
+                        placeholder="e.g. SE2027-MH-401928"
+                        className={`w-full px-3 py-2 rounded-xl border text-xs font-mono ${inputBgClass}`}
+                      />
+
+                      <button
+                        onClick={handleVerifyCode}
+                        className="w-full py-2.5 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs hover:bg-emerald-600 shadow"
+                      >
+                        ⚡ Verify Token Hash
+                      </button>
+                    </div>
+
+                    {verificationResult && (
+                      <div className={`p-4 rounded-2xl border text-xs space-y-2 ${
+                        verificationResult.valid
+                          ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-800 dark:text-emerald-200'
+                          : 'bg-rose-500/10 border-rose-500/40 text-rose-800 dark:text-rose-200'
+                      }`}>
+                        <div className="font-bold flex justify-between">
+                          <span>{verificationResult.valid ? "✓ TOKEN VALIDATED" : "✗ INVALID TOKEN"}</span>
+                          <span className="font-mono text-[10px]">{verificationResult.verifiedTime || "Now"}</span>
+                        </div>
+                        {verificationResult.valid && (
+                          <div className="space-y-1 text-[11px]">
+                            <div><strong>ID:</strong> {verificationResult.seId}</div>
+                            <div><strong>Location:</strong> {verificationResult.district}, {verificationResult.state}</div>
+                            <div><strong>Status:</strong> {verificationResult.verificationStatus}</div>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* VIEW 5: BHASHASETU VOICE AI */}
+            {activeTab === 'voiceAI' && (
+              <div className="space-y-6 animate-fadeIn max-w-3xl mx-auto text-center">
+                <div className="space-y-1">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-saffron-500/15 text-saffron-600 dark:text-saffron-400 text-xs font-bold">
+                    <span>🎙️</span> INNOVATION 1: SPEECH-TO-FORM
+                  </div>
+                  <h2 className="text-2xl font-heading font-extrabold">{t.voiceAITitle}</h2>
+                  <p className={`text-xs ${textMutedClass}`}>{t.voiceAISubtitle}</p>
+                </div>
+
+                <div className={`p-8 rounded-3xl ${cardBgClass} space-y-6`}>
+                  <button
+                    onClick={isListening ? () => setIsListening(false) : handleStartVoice}
+                    className={`w-24 h-24 mx-auto rounded-full flex items-center justify-center text-4xl shadow-xl transition-all ${
+                      isListening ? 'bg-rose-500 text-white animate-pulse' : 'bg-saffron-500 text-slate-950 hover:scale-105'
+                    }`}
+                  >
+                    {isListening ? '⏹️' : '🎙️'}
+                  </button>
+
+                  <div>
+                    <h4 className="text-sm font-bold">{isListening ? t.voiceBtnListening : t.voiceBtnListen}</h4>
+                    <p className={`text-xs ${textMutedClass}`}>Hindi, Marathi, or English</p>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
+                    <span className="text-xs font-bold uppercase tracking-wider opacity-75">{t.voiceTrySample}</span>
+                    <div className="flex flex-wrap justify-center gap-2">
+                      <button
+                        onClick={() => simulateVoiceParsing("मेरा नाम राजेश शर्मा है, 45 साल, 4 सदस्य, पक्का घर और नल का पानी है")}
+                        className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs border hover:border-saffron-500 text-left"
+                      >
+                        🗣️ <strong className="text-saffron-600 dark:text-saffron-400">हिंदी:</strong> "मेरा नाम राजेश शर्मा है..."
+                      </button>
+                      <button
+                        onClick={() => simulateVoiceParsing("माझे नाव सचिन पाटील आहे, वय ३८, ३ सदस्य, पक्के घर आणि वीज आहे")}
+                        className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs border hover:border-saffron-500 text-left"
+                      >
+                        🗣️ <strong className="text-saffron-600 dark:text-saffron-400">मराठी:</strong> "माझे नाव सचिन पाटील आहे..."
+                      </button>
+                    </div>
+                  </div>
+
+                  {aiParsedEntities && (
+                    <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-left space-y-3">
+                      <div className="flex justify-between items-center text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                        <span>✨ Parsed Profile</span>
+                        <span className="font-mono text-[10px]">{aiParsedEntities.confidence}</span>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                        <div>Name: <strong>{aiParsedEntities.name}</strong></div>
+                        <div>Age: <strong>{aiParsedEntities.age} Yrs</strong></div>
+                        <div>Members: <strong>{aiParsedEntities.membersCount}</strong></div>
+                      </div>
+                      <button
+                        onClick={() => { setActiveTab('selfEnum'); setFormStep(2); }}
+                        className="w-full py-2 rounded-xl bg-saffron-500 text-slate-950 font-bold text-xs shadow"
+                      >
+                        Continue to Form with Voice Data →
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* VIEW 6: NITI-DRISHTI POLICY SIMULATOR */}
+            {activeTab === 'policyAI' && (
+              <div className="space-y-6 animate-fadeIn">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div>
+                    <h2 className="text-2xl font-heading font-extrabold">Niti-Drishti: 2030-2040 Policy Visualizer</h2>
+                    <p className={`text-xs ${textMutedClass}`}>Simulate demographic changes to forecast future healthcare, energy, and school needs.</p>
+                  </div>
+                  <button
+                    onClick={handleGeneratePolicyBrief}
+                    className="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs shadow"
+                  >
+                    ⚡ Generate Strategic Policy Brief
+                  </button>
+                </div>
+
+                <div className={`p-6 rounded-3xl ${cardBgClass} space-y-6`}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2">
+                      <div className="flex justify-between text-xs font-bold">
+                        <span>Urbanization</span>
+                        <span className="text-saffron-600 dark:text-saffron-400">{policyParams.urbanizationRate}%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="25"
+                        max="65"
+                        value={policyParams.urbanizationRate}
+                        onChange={(e) => setPolicyParams({...policyParams, urbanizationRate: Number(e.target.value)})}
+                        className="w-full accent-saffron-500"
+                      />
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2">
+                      <div className="flex justify-between text-xs font-bold">
+                        <span>Senior Ratio (60+)</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">{policyParams.elderlyRatio}%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="8"
+                        max="28"
+                        value={policyParams.elderlyRatio}
+                        onChange={(e) => setPolicyParams({...policyParams, elderlyRatio: Number(e.target.value)})}
+                        className="w-full accent-emerald-500"
+                      />
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2">
+                      <div className="flex justify-between text-xs font-bold">
+                        <span>Clean Energy</span>
+                        <span className="text-sky-600 dark:text-sky-400">{policyParams.cleanEnergyRate}%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="30"
+                        max="90"
+                        value={policyParams.cleanEnergyRate}
+                        onChange={(e) => setPolicyParams({...policyParams, cleanEnergyRate: Number(e.target.value)})}
+                        className="w-full accent-sky-500"
+                      />
+                    </div>
+
+                    <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-2">
+                      <div className="flex justify-between text-xs font-bold">
+                        <span>Female Workforce</span>
+                        <span className="text-purple-600 dark:text-purple-400">{policyParams.femaleWorkforce}%</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="20"
+                        max="60"
+                        value={policyParams.femaleWorkforce}
+                        onChange={(e) => setPolicyParams({...policyParams, femaleWorkforce: Number(e.target.value)})}
+                        className="w-full accent-purple-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {generatedBrief && (
+                  <div className={`p-6 rounded-3xl ${cardBgClass} space-y-4`}>
+                    <h3 className="text-lg font-heading font-extrabold">{generatedBrief.title}</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {generatedBrief.predictions.map((p, idx) => (
+                        <div key={idx} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-1">
+                          <div className="text-xs font-bold">{p.domain}</div>
+                          <div className="text-base font-black text-sky-600 dark:text-sky-400">{p.metric}</div>
+                          <p className={`text-xs ${textMutedClass}`}>{p.recommendation}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* VIEW 7: PRIVACY & STATUTORY PROTECTION */}
+            {activeTab === 'privacy' && (
+              <div className="space-y-6 animate-fadeIn max-w-4xl mx-auto">
+                <div className="text-center space-y-1">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+                    <span>🛡️</span> DPDP ACT 2023 & CENSUS ACT 1948
+                  </div>
+                  <h2 className="text-2xl font-heading font-extrabold">{t.privacyTitle}</h2>
+                  <p className={`text-xs ${textMutedClass}`}>{t.privacySubtitle}</p>
+                </div>
+
+                <div className={`p-6 rounded-3xl ${cardBgClass} space-y-4`}>
+                  <h3 className="text-base font-bold">Official AI Myth Buster & Rumor Shield</h3>
+                  <div className="space-y-3">
+                    {MYTH_BUSTER_ITEMS.map((item) => (
+                      <div key={item.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 space-y-1.5">
+                        <div className="flex justify-between items-center">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-saffron-500/20 text-saffron-700 dark:text-saffron-300">
+                            {item.tag}
+                          </span>
+                          <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400">✓ Legal Guarantee</span>
+                        </div>
+                        <h4 className="text-xs sm:text-sm font-bold">{item.myth}</h4>
+                        <p className={`text-xs ${textMutedClass}`}>{item.fact}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* VIEW 8: VRIKSHA-SETU DEDICATED GREEN IMPACT */}
+            {activeTab === 'green' && (
+              <div className="space-y-6 animate-fadeIn max-w-4xl mx-auto">
+                <div className="text-center space-y-1">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+                    <span>🌱</span> GOOD FOR THE PLANET
+                  </div>
+                  <h2 className="text-2xl font-heading font-extrabold">{t.greenTitle}</h2>
+                  <p className={`text-xs ${textMutedClass}`}>{t.greenSubtitle}</p>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className={`p-5 rounded-2xl ${cardBgClass} text-center space-y-1`}>
+                    <span className="text-3xl block">📄</span>
+                    <span className={`text-xs ${textMutedClass}`}>{t.statPaperSaved}</span>
+                    <div className="text-xl font-black text-emerald-600 dark:text-emerald-400">{paperSavedSheets.toLocaleString('en-IN')}</div>
+                  </div>
+                  <div className={`p-5 rounded-2xl ${cardBgClass} text-center space-y-1`}>
+                    <span className="text-3xl block">☁️</span>
+                    <span className={`text-xs ${textMutedClass}`}>{t.statCo2Avoided}</span>
+                    <div className="text-xl font-black text-teal-600 dark:text-teal-400">{co2AvoidedKg.toLocaleString('en-IN')} kg</div>
+                  </div>
+                  <div className={`p-5 rounded-2xl ${cardBgClass} text-center space-y-1`}>
+                    <span className="text-3xl block">💧</span>
+                    <span className={`text-xs ${textMutedClass}`}>{t.statWaterSaved}</span>
+                    <div className="text-xl font-black text-sky-600 dark:text-sky-400">{waterSavedLiters.toLocaleString('en-IN')} L</div>
+                  </div>
+                  <div className={`p-5 rounded-2xl ${cardBgClass} text-center space-y-1`}>
+                    <span className="text-3xl block">🌳</span>
+                    <span className={`text-xs ${textMutedClass}`}>{t.statTreesPlanted}</span>
+                    <div className="text-xl font-black text-emerald-500">{virtualTreesSeeded.toLocaleString('en-IN')}</div>
+                  </div>
+                </div>
+
+                <div className={`p-6 rounded-3xl ${cardBgClass} space-y-4`}>
+                  <div className="flex justify-between text-xs font-bold">
+                    <span>National Afforestation Target (Nagar Van Yojana):</span>
+                    <span className="font-mono text-emerald-600 dark:text-emerald-400">{baseSelfEnumCount.toLocaleString('en-IN')} / 25,00,000 Seeds ({greenGoalPercent}%)</span>
+                  </div>
+                  <div className="w-full h-3 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
+                    <div className="h-full bg-emerald-500 rounded-full transition-all duration-500" style={{ width: `${greenGoalPercent}%` }}></div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* VIEW 9: TWO-PHASE ROADMAP */}
+            {activeTab === 'roadmap' && (
+              <div className="space-y-6 animate-fadeIn">
+                <div className="text-center max-w-2xl mx-auto space-y-1">
+                  <h2 className="text-2xl font-heading font-extrabold">Two-Phase Statutory Framework</h2>
+                  <p className={`text-xs ${textMutedClass}`}>Executed systematically across all 36 States and Union Territories.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className={`p-6 rounded-3xl ${cardBgClass} border-t-4 border-t-saffron-500 space-y-3`}>
+                    <div className="flex justify-between text-xs font-bold">
+                      <span className="text-saffron-600 dark:text-saffron-400">PHASE 1</span>
+                      <span className="font-mono">April - September 2026</span>
+                    </div>
+                    <h3 className="text-lg font-bold">Houselisting & Housing Census</h3>
+                    <p className={`text-xs ${textMutedClass}`}>Mapping wall/roof materials, tap water, toilets, clean cooking LPG, electricity, and digital broadband.</p>
+                    <span className="inline-block px-2.5 py-0.5 rounded bg-saffron-500 text-slate-950 font-bold text-xs">Active Phase</span>
+                  </div>
+
+                  <div className={`p-6 rounded-3xl ${cardBgClass} border-t-4 border-t-emerald-500 space-y-3`}>
+                    <div className="flex justify-between text-xs font-bold">
+                      <span className="text-emerald-600 dark:text-emerald-400">PHASE 2</span>
+                      <span className="font-mono">February 9 - 28, 2027</span>
+                    </div>
+                    <h3 className="text-lg font-bold">Population Enumeration</h3>
+                    <p className={`text-xs ${textMutedClass}`}>Universal head-count assessing age cohorts, literacy, education, worker sectors, migration and mother tongues.</p>
+                    <span className="inline-block px-2.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 font-bold text-xs">Scheduled</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* VIEW 10: DEMOGRAPHIC ANALYTICS */}
+            {activeTab === 'analytics' && (
+              <div className="space-y-6 animate-fadeIn">
+                <h2 className="text-2xl font-heading font-extrabold">Demographic Visualizations & Trends</h2>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div className={`p-6 rounded-3xl ${cardBgClass} space-y-3`}>
+                    <h3 className="text-sm font-bold">Age-Gender Demographic Pyramid</h3>
+                    <div className="h-60 relative">
+                      <canvas id="chart-pyramid"></canvas>
+                    </div>
+                  </div>
+                  <div className={`p-6 rounded-3xl ${cardBgClass} space-y-3`}>
+                    <h3 className="text-sm font-bold">Amenities: Urban vs Rural Radar</h3>
+                    <div className="h-60 relative">
+                      <canvas id="chart-amenities"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+          </main>
+
+          {/* ==========================================================================
+              MODAL 1: CITIZEN IDENTITY & MOBILE OTP VERIFICATION GATE (ANTI-FAKE)
+             ========================================================================== */}
+          {showOtpModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fadeIn">
+              <div className={`w-full max-w-md p-6 sm:p-8 rounded-3xl ${cardBgClass} border-2 border-saffron-500 shadow-2xl space-y-5 relative`}>
+                
+                {/* Close Button */}
+                <button
+                  onClick={() => setShowOtpModal(false)}
+                  className="absolute top-4 right-4 text-slate-400 hover:text-slate-200 font-bold text-lg"
+                >
+                  ✕
+                </button>
+
+                <div className="text-center space-y-1">
+                  <div className="w-12 h-12 mx-auto rounded-2xl bg-saffron-500/20 text-saffron-600 dark:text-saffron-400 flex items-center justify-center text-2xl mb-2">
+                    📲
+                  </div>
+                  <h3 className="text-lg font-heading font-extrabold">Citizen Identity Verification</h3>
+                  <p className={`text-xs ${textMutedClass}`}>
+                    Anti-Fake Security Gate: Prevents bots and ensures genuine census results.
+                  </p>
+                </div>
+
+                {/* Mobile Display */}
+                <div className="p-3 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-between text-xs">
+                  <span className={textMutedClass}>Mobile Number:</span>
+                  <span className="font-mono font-bold">+91 {formData.headPhone || "9820194820"}</span>
+                </div>
+
+                {/* Anti-Bot Math CAPTCHA */}
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold">Anti-Bot Human Verification:</label>
+                  <div className="flex items-center gap-3">
+                    <div className="px-3.5 py-2 rounded-xl bg-saffron-500/15 border border-saffron-500/40 text-saffron-600 dark:text-saffron-400 font-mono font-extrabold text-sm">
+                      {captchaNum1} + {captchaNum2} = ?
+                    </div>
+                    <input
+                      type="number"
+                      value={captchaInput}
+                      onChange={(e) => setCaptchaInput(e.target.value)}
+                      placeholder="Answer"
+                      className={`flex-1 px-3 py-2 rounded-xl border text-xs font-bold ${inputBgClass}`}
+                    />
+                  </div>
+                </div>
+
+                {/* 6-Digit OTP Boxes */}
+                <div className="space-y-2">
+                  <div className="flex justify-between text-xs font-semibold">
+                    <span>Enter 6-Digit OTP:</span>
+                    <span className="text-saffron-600 dark:text-saffron-400 font-mono">
+                      {otpTimer > 0 ? `00:${otpTimer < 10 ? '0' : ''}${otpTimer}` : 'Expired'}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-6 gap-2">
+                    {otpDigits.map((digit, idx) => (
+                      <input
+                        key={idx}
+                        id={`otp-box-${idx}`}
+                        type="text"
+                        maxLength="1"
+                        value={digit}
+                        onChange={(e) => {
+                          const val = e.target.value.replace(/[^0-9]/g, '');
+                          const newDigits = [...otpDigits];
+                          newDigits[idx] = val;
+                          setOtpDigits(newDigits);
+                          if (val && idx < 5) {
+                            const next = document.getElementById(`otp-box-${idx + 1}`);
+                            if (next) next.focus();
+                          }
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Backspace' && !otpDigits[idx] && idx > 0) {
+                            const prev = document.getElementById(`otp-box-${idx - 1}`);
+                            if (prev) prev.focus();
+                          }
+                        }}
+                        className={`h-11 text-center font-mono font-black text-base rounded-xl border ${inputBgClass}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Demo Shortcut */}
+                  <div className="flex justify-between items-center text-[11px] pt-1">
+                    <button
+                      type="button"
+                      onClick={handleFillDemoOtp}
+                      className="text-saffron-600 dark:text-saffron-400 font-bold hover:underline"
+                    >
+                      ⚡ Use Demo OTP (829104)
+                    </button>
+                    {otpTimer === 0 ? (
+                      <button
+                        type="button"
+                        onClick={() => { setOtpTimer(30); generateNewCaptcha(); }}
+                        className="text-emerald-600 dark:text-emerald-400 font-bold hover:underline"
+                      >
+                        Resend OTP
+                      </button>
+                    ) : (
+                      <span className={textMutedClass}>SMS sent to mobile</span>
+                    )}
+                  </div>
+                </div>
+
+                {otpError && (
+                  <div className="p-2.5 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-600 dark:text-rose-300 text-xs font-medium">
+                    ⚠️ {otpError}
+                  </div>
+                )}
+
+                {/* Submit Verification */}
+                <button
+                  onClick={handleVerifyOtpSubmit}
+                  disabled={isVerifyingOtp}
+                  className="w-full py-3 rounded-xl bg-saffron-500 hover:bg-saffron-600 text-slate-950 font-extrabold text-xs shadow-lg transition-all flex items-center justify-center gap-2"
+                >
+                  {isVerifyingOtp ? (
+                    <span>Verifying Citizen Token...</span>
+                  ) : (
+                    <span>✓ Confirm Identity & Authenticate</span>
+                  )}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* ==========================================================================
+              MODAL 2: INTERACTIVE VISUAL STATE & UT SELECTOR (FOR ALL 36 STATES)
+             ========================================================================== */}
+          {showStateModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fadeIn">
+              <div className={`w-full max-w-4xl max-h-[88vh] flex flex-col p-6 rounded-3xl ${cardBgClass} border border-slate-300 dark:border-slate-700 shadow-2xl space-y-4`}>
+                
+                {/* Header */}
+                <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                  <div>
+                    <h3 className="text-lg font-heading font-extrabold flex items-center gap-2">
+                      <span>🗺️</span>
+                      <span>Pick Your State / Union Territory (36 States)</span>
+                    </h3>
+                    <p className={`text-xs ${textMutedClass}`}>Touch any card to select immediately without typing or speaking.</p>
+                  </div>
+                  <button
+                    onClick={() => setShowStateModal(false)}
+                    className="p-1 text-slate-400 hover:text-slate-200 font-bold text-lg"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                {/* Filter and Zone Tabs */}
+                <div className="flex flex-col sm:flex-row gap-2 justify-between">
+                  <div className="flex items-center gap-1 overflow-x-auto no-scrollbar pb-1">
+                    {["All", "North", "South", "West", "East", "Central", "North-East", "UTs"].map(z => (
+                      <button
+                        key={z}
+                        onClick={() => setStateModalZone(z)}
+                        className={`px-3 py-1 text-xs rounded-xl font-bold whitespace-nowrap transition-all ${
+                          stateModalZone === z
+                            ? 'bg-saffron-500 text-slate-950 shadow-sm'
+                            : 'bg-slate-100 dark:bg-slate-800 opacity-80 hover:opacity-100'
+                        }`}
+                      >
+                        {z}
+                      </button>
+                    ))}
+                  </div>
+
+                  <input
+                    type="text"
+                    value={stateModalSearch}
+                    onChange={(e) => setStateModalSearch(e.target.value)}
+                    placeholder="Search state name or Hindi..."
+                    className={`px-3 py-1.5 text-xs rounded-xl border ${inputBgClass} w-full sm:w-56`}
+                  />
+                </div>
+
+                {/* Scrollable Visual Cards Grid */}
+                <div className="overflow-y-auto flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 p-1">
+                  {modalFilteredStates.map(st => (
+                    <button
+                      key={st.id}
+                      onClick={() => handleSelectState(st)}
+                      className={`p-3 rounded-2xl border text-left transition-all hover:scale-102 flex flex-col justify-between ${
+                        formData.state === st.name
+                          ? 'bg-saffron-500/20 border-saffron-500 ring-2 ring-saffron-400 shadow-md'
+                          : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 hover:border-saffron-400'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-2xl">{st.icon}</span>
+                        <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 font-bold">
+                          {st.id}
+                        </span>
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold truncate">{st.name}</div>
+                        <div className="text-[11px] text-saffron-600 dark:text-saffron-400 font-medium">{st.nameHi}</div>
+                        <div className={`text-[10px] ${textMutedClass} mt-1`}>{st.capital} • {st.districts} Dist.</div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+                  <button
+                    onClick={() => setShowStateModal(false)}
+                    className="px-5 py-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-xs font-bold"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ==========================================================================
+              MODAL 3: LEGAL TRUST & DATA PRIVACY GUARANTEE (CENSUS ACT 1948)
+             ========================================================================== */}
+          {showTrustModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-fadeIn">
+              <div className={`w-full max-w-lg p-6 sm:p-8 rounded-3xl ${cardBgClass} border border-emerald-500/40 shadow-2xl space-y-4`}>
+                <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🏛️</span>
+                    <h3 className="text-base font-heading font-bold">Statutory Confidentiality Guarantee</h3>
+                  </div>
+                  <button onClick={() => setShowTrustModal(false)} className="text-slate-400 hover:text-slate-200 text-lg">✕</button>
+                </div>
+
+                <div className="space-y-3 text-xs leading-relaxed">
+                  <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
+                    <strong className="text-emerald-700 dark:text-emerald-300 block mb-1">Section 15, Census Act 1948 (Act No. 37 of 1948):</strong>
+                    All census records are strictly confidential by law. No individual information can be used as evidence in court or accessed by tax or police authorities.
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-sky-500/10 border border-sky-500/30">
+                    <strong className="text-sky-700 dark:text-sky-300 block mb-1">Digital Personal Data Protection (DPDP) Act 2023:</strong>
+                    Client-side Zero-Knowledge token hashing and Differential Privacy (ε=0.5) protect raw household records.
+                  </div>
+
+                  <div className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800 border">
+                    <strong className="block mb-1">Zero Biometrics Guarantee:</strong>
+                    Self-enumeration does not require fingerprints, retina scans, or physical document uploads. Mobile OTP is solely for SMS receipt confirmation and anti-bot verification.
+                  </div>
+                </div>
+
+                <div className="flex justify-end pt-2">
+                  <button
+                    onClick={() => setShowTrustModal(false)}
+                    className="px-5 py-2 rounded-xl bg-saffron-500 text-slate-950 font-bold text-xs shadow"
+                  >
+                    I Understand & Feel Safe
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ==========================================
+              FOOTER
+             ========================================== */}
+          <footer className={`mt-12 py-8 border-t ${theme === 'light' ? 'bg-slate-100 border-slate-200 text-slate-600' : 'bg-slate-950 border-slate-800 text-slate-400'} text-xs`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">🇮🇳</span>
+                  <div>
+                    <strong className="block text-slate-900 dark:text-slate-100">Census 2027 Portal • डिजिटल जनगणना</strong>
+                    <span className="text-[11px] opacity-75">Office of the Registrar General & Census Commissioner, India</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3 font-medium text-[11px]">
+                  <button onClick={() => setShowTrustModal(true)} className="hover:underline">Legal Guarantee</button>
+                  <button onClick={() => setActiveTab('green')} className="hover:underline">Vriksha-Setu Green Offset</button>
+                  <button onClick={() => setActiveTab('privacy')} className="hover:underline">DPDP 2023 Shield</button>
+                  <button onClick={() => setShowStateModal(true)} className="hover:underline">All 36 States</button>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-slate-200 dark:border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-[11px] opacity-75">
+                <span>© 2026-2027 Office of the Registrar General & Census Commissioner, India.</span>
+                <span>Protected by Mobile OTP Anti-Fake Gate & DPDP 2023 Encryption.</span>
+              </div>
+            </div>
+          </footer>
+
+        </div>
+      );
+    }
+
+    // Mount Application to Root DOM
+    const rootElement = document.getElementById("root");
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<App />);
+  </script>
+</body>
+</html>
